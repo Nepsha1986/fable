@@ -1,6 +1,73 @@
+$flor_color: linear-gradient(
+  to bottom,
+  #310000,
+  #380101,
+  #400002,
+  #470001,
+  #4f0000
+);
+$back_color: #310000;
+
+$box_depth: 300px;
+
 .scene {
+  background: #310000;
   min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  perspective: 600px;
+  position: relative;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20vw;
+    min-height: 100dvh;
+  }
+
+  &__floor {
+    width: 100%;
+    height: $box_depth;
+    transform-origin: bottom left;
+    background: $flor_color;
+    transform: rotateX(90deg) translateZ(1em);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #000;
+  }
+
+  &__roof {
+    width: 100%;
+    height: $box_depth;
+    transform-origin: top left;
+    background: $flor_color;
+    transform: rotateX(-90deg) translateZ(-1em);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #000;
+  }
+
+  &__wallLeft {
+    height: 100%;
+    width: $box_depth;
+    transform-origin: top left;
+    background: $flor_color;
+    transform: rotateY(90deg) translateY(-1em);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #000;
+  }
+
+  &__wallRight {
+    height: 100%;
+    width: $box_depth;
+    transform-origin: top right;
+    background: $flor_color;
+    transform: rotateY(-90deg) translateY(-1em);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid #000;
+  }
 }

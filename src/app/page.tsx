@@ -12,14 +12,14 @@ import Part3 from '@/app/_containers/Part3';
 import styles from './page.module.css';
 
 export default function Home() {
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
-  }, {});
+  // useGSAP(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  // }, {});
   return (
     <main className={styles.main}>
       <Part1 />
-      <Part2 />
-      <Part3 />
+      {/*<Part2 />*/}
+      {/*<Part3 />*/}
     </main>
   );
 }

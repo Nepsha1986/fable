@@ -8,23 +8,30 @@ import styles from './styles.module.scss';
 
 interface Props {
   children: React.ReactNode;
+  index?: number;
 }
 
-const Heading = ({ children }: Props) => {
+const Text = ({ children, index = 1 }: Props) => {
   const { container } = useContext(SceneContext);
+
+  // TODO: Draft!
+  const fadeOutDelay = index === 1 ? 1.3 * index : 3 * index;
+  const fadeInDelay = index === 1 ? 1.7 * index : fadeOutDelay * index;
 
   useGSAP(
     () => {
-      gsap.to('.gsap-heading', {
+      gsap.to(`.gsap-text-${index}`, {
         ease: 'sine.in',
         duration: 1.5,
         opacity: '1',
+        delay: fadeInDelay,
+
         onComplete: () => {
-          gsap.to('.gsap-heading', {
-            scale: 1.75,
+          gsap.to(`.gsap-text-${index}`, {
+            scale: 1.7,
             y: '-180px',
             ease: 'sine.out',
-            delay: 2.5,
+            delay: fadeOutDelay,
             duration: 3,
             opacity: '0',
             filter: 'blur(27px)',
@@ -37,7 +44,7 @@ const Heading = ({ children }: Props) => {
     },
   );
 
-  return <h1 className={`${styles.heading} gsap-heading`}>{children}</h1>;
+  return <p className={`${styles.text} gsap-text-${index}`}>{children}</p>;
 };
 
-export default Heading;
+export default Text;
