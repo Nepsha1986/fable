@@ -10,9 +10,10 @@ $back_color: #310000;
 
 $box_depth: 300px;
 
+$flor_color: transparent;
 .scene {
-  background: #310000;
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
   perspective: 600px;
   position: relative;
 
@@ -28,11 +29,11 @@ $box_depth: 300px;
     height: $box_depth;
     transform-origin: bottom left;
     background: $flor_color;
-    transform: rotateX(90deg) translateZ(1em);
+    transform: rotateX(90deg);
     position: absolute;
     bottom: 0;
     left: 0;
-    border: 1px solid #000;
+    border: 1px solid #fff;
   }
 
   &__roof {
@@ -40,11 +41,11 @@ $box_depth: 300px;
     height: $box_depth;
     transform-origin: top left;
     background: $flor_color;
-    transform: rotateX(-90deg) translateZ(-1em);
+    transform: rotateX(-90deg);
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid #000;
+    border: 1px solid #fff;
   }
 
   &__wallLeft {
@@ -52,11 +53,11 @@ $box_depth: 300px;
     width: $box_depth;
     transform-origin: top left;
     background: $flor_color;
-    transform: rotateY(90deg) translateY(-1em);
+    transform: rotateY(90deg);
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid #000;
+    border: 1px solid #fff;
   }
 
   &__wallRight {
@@ -64,10 +65,10 @@ $box_depth: 300px;
     width: $box_depth;
     transform-origin: top right;
     background: $flor_color;
-    transform: rotateY(-90deg) translateY(-1em);
+    transform: rotateY(-90deg);
     position: absolute;
     top: 0;
     right: 0;
-    border: 1px solid #000;
+    border: 1px solid #fff;
   }
 }

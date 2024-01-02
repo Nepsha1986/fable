@@ -3,21 +3,24 @@ import React, { cloneElement, MutableRefObject, useRef } from 'react';
 
 import Heading from './Heading';
 import Text from './Text';
-import SceneAnimation from './SceneAnimation';
+import Layer from './Layer';
+import Item from './Item';
 import SceneContext from './context';
 
 import styles from './styles.module.scss';
 
 interface Props {
   children: React.ReactNode;
-  onComplete?: () => void;
+  background?: string;
+  debug?: boolean;
 }
-const Scene = ({ children, onComplete }: Props) => {
+const Scene = ({ children, background, debug }: Props) => {
   const container = useRef<HTMLElement | null>(null);
   type SceneComponentType =
     | typeof Scene.Text
     | typeof Scene.Heading
-    | typeof Scene.Animation;
+    | typeof Scene.Item
+    | typeof Scene.Layer;
 
   const getComponent = (el: SceneComponentType): React.ReactNode =>
     React.Children.toArray(children).find(
@@ -30,33 +33,43 @@ const Scene = ({ children, onComplete }: Props) => {
     );
 
   const Heading = getComponent(Scene.Heading) || null;
-  const Texts = getComponents(Scene.Text) || [];
-  const Animation = getComponent(Scene.Animation) || null;
+  const Texts = getComponents(Scene.Text) || null;
+  const Layers = getComponents(Scene.Layer) || null;
+  const Items = getComponents(Scene.Item) || null;
 
   return (
     <SceneContext.Provider
       value={{ container: container as MutableRefObject<HTMLElement> }}
     >
-      <section className={styles.scene} ref={container}>
-        <div className={styles.scene__roof} />
-        <div className={styles.scene__floor} />
-        <div className={styles.scene__wallLeft} />
-        <div className={styles.scene__wallRight} />
+      <section ref={container} style={{ background }}>
+        <div className={styles.scene}>
+          {!!Layers.length &&
+            Layers.map((Child) => cloneElement(Child as React.ReactElement))}
 
-        <div className={styles.scene__content}>
-          <div>
-            {Heading}
-            {Texts.map((Child, index) => {
-              const additionalProps = {
-                index: index + 1,
-              };
-              // @ts-ignore
-              return cloneElement(Child, additionalProps);
-            })}
+          {debug && (
+            <>
+              <div className={styles.scene__roof} />
+              <div className={styles.scene__floor} />
+              <div className={styles.scene__wallLeft} />
+              <div className={styles.scene__wallRight} />
+            </>
+          )}
+
+          {!!Items.length &&
+            Items.map((Child) => cloneElement(Child as React.ReactElement))}
+
+          <div className={styles.scene__content}>
+            <div>
+              {Heading}
+              {!!Texts.length &&
+                Texts.map((Child, index) =>
+                  cloneElement(Child as React.ReactElement, {
+                    index: index + 1,
+                  }),
+                )}
+            </div>
           </div>
         </div>
-
-        {Animation}
       </section>
     </SceneContext.Provider>
   );
@@ -64,6 +77,7 @@ const Scene = ({ children, onComplete }: Props) => {
 
 Scene.Heading = Heading;
 Scene.Text = Text;
-Scene.Animation = SceneAnimation;
+Scene.Layer = Layer;
+Scene.Item = Item;
 
 export default Scene;
