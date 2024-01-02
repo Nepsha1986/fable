@@ -4,6 +4,7 @@ import img from './bg-1.png';
 import moon from './moon.png';
 import Cloud from '@/app/_containers/Part2/Cloud';
 import TweenVars = gsap.TweenVars;
+import { generateCoordinates } from '@/utils';
 
 const cloudsAnimation = {
   scrollProps: {
@@ -19,8 +20,10 @@ const cloudsAnimation = {
 };
 
 const Part2 = () => {
+  const clouds = generateCoordinates(10, 1);
+
   return (
-    <Scene background="linear-gradient(to bottom, #000922, #00455f, #008686, #74c693, #f6ff9d)">
+    <Scene background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)">
       <Scene.Item
         width="30%"
         top="10%"
@@ -41,16 +44,17 @@ const Part2 = () => {
         <img src={moon.src} alt="moon" />
       </Scene.Item>
 
-      <Scene.Item
-        width="80px"
-        height="80px"
-        top="50%"
-        depth={-500}
-        left="28%"
-        animated={cloudsAnimation}
-      >
-        <Cloud type="1" />
-      </Scene.Item>
+      {clouds.map((i) => (
+        <Scene.Item
+          width="180px"
+          height="180px"
+          top={i.y}
+          left={i.x}
+          depth={i.depth}
+        >
+          <Cloud type="1" />
+        </Scene.Item>
+      ))}
 
       <Scene.Item
         width="130px"

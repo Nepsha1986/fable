@@ -16,12 +16,14 @@ interface Props {
   background?: string;
   debug?: boolean;
   minHeight?: string;
+  overflow?: string;
 }
 const Scene = ({
   children,
   background,
   debug,
   minHeight = '100dvh',
+  overflow = 'hidden',
 }: Props) => {
   const container = useRef<HTMLElement | null>(null);
   const sceneRef = useRef<HTMLElement | null>(null);
@@ -77,7 +79,7 @@ const Scene = ({
           // @ts-ignore
           ref={sceneRef}
           className={styles.scene}
-          style={{ perspectiveOrigin: '50% 0%', minHeight }}
+          style={{ perspectiveOrigin: '50% 0%', minHeight, overflow }}
         >
           {!!Layers.length &&
             Layers.map((Child) => cloneElement(Child as React.ReactElement))}

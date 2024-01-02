@@ -7,7 +7,10 @@ const Part1 = () => {
   const stars = generateCoordinates(250, -50);
 
   return (
-    <Scene background="linear-gradient(to top, #000922, #000a1c, #000914, #00060a, #000101)">
+    <Scene
+      background="linear-gradient(to top, #000922, #000a1c, #000914, #00060a, #000101)"
+      overflow="visible"
+    >
       {stars.map((i) => (
         <Scene.Item
           top={i.y}
