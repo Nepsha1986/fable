@@ -1,8 +1,11 @@
 import React, { useContext, useRef } from 'react';
-import styles from './styles.module.scss';
-import SceneContext from '@/components/Scene/context';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import TweenVars = gsap.TweenVars;
+
+import SceneContext from '@/components/Scene/context';
+
+import styles from './styles.module.scss';
 
 interface Props {
   children?: React.ReactNode;
@@ -14,8 +17,11 @@ interface Props {
   left?: string;
   right?: string;
   depth?: number;
-  imgSrc?: string;
   bgColor?: string;
+  animated?: {
+    animatedProps: Omit<TweenVars, 'scrollTrigger'>;
+    scrollProps?: Omit<ScrollTrigger.Vars, 'trigger'>;
+  };
 }
 
 const Item = ({
@@ -24,30 +30,32 @@ const Item = ({
   height,
   transformOrigin = 'bottom center',
   top,
-  bottom = '0%',
+  bottom,
   left,
-  right = '0%',
+  right,
   depth,
+  animated,
 }: Props) => {
   const { container } = useContext(SceneContext);
   const bgRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      gsap.to(bgRef.current, {
-        scrollTrigger: {
-          trigger: container.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-        ease: 'sine.in',
-      });
-    },
-    {
-      scope: container,
-    },
-  );
+  animated &&
+    useGSAP(
+      () => {
+        gsap.to(bgRef.current, {
+          ...animated.animatedProps,
+          scrollTrigger: animated.scrollProps
+            ? {
+                trigger: container.current,
+                ...animated.scrollProps,
+              }
+            : undefined,
+        });
+      },
+      {
+        scope: container,
+      },
+    );
 
   return (
     <div

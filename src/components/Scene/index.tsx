@@ -8,6 +8,8 @@ import Item from './Item';
 import SceneContext from './context';
 
 import styles from './styles.module.scss';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 interface Props {
   children: React.ReactNode;
@@ -16,6 +18,8 @@ interface Props {
 }
 const Scene = ({ children, background, debug }: Props) => {
   const container = useRef<HTMLElement | null>(null);
+  const sceneRef = useRef<HTMLElement | null>(null);
+
   type SceneComponentType =
     | typeof Scene.Text
     | typeof Scene.Heading
@@ -37,12 +41,38 @@ const Scene = ({ children, background, debug }: Props) => {
   const Layers = getComponents(Scene.Layer) || null;
   const Items = getComponents(Scene.Item) || null;
 
+  useGSAP(
+    () => {
+      // @ts-ignore
+      const movement = sceneRef.current.offsetHeight * 0.25;
+
+      gsap.to(sceneRef.current, {
+        scrollTrigger: {
+          trigger: container.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+        ease: 'sine.in',
+        perspectiveOrigin: `50% ${movement}%`,
+      });
+    },
+    {
+      scope: container,
+    },
+  );
+
   return (
     <SceneContext.Provider
       value={{ container: container as MutableRefObject<HTMLElement> }}
     >
       <section ref={container} style={{ background }}>
-        <div className={styles.scene}>
+        <div
+          // @ts-ignore
+          ref={sceneRef}
+          className={styles.scene}
+          style={{ perspectiveOrigin: '50% 0%' }}
+        >
           {!!Layers.length &&
             Layers.map((Child) => cloneElement(Child as React.ReactElement))}
 

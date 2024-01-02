@@ -1,3 +1,8 @@
 .item {
-  position: absolute;
+  position: fixed;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
 }

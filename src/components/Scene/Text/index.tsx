@@ -25,18 +25,6 @@ const Text = ({ children, index = 1 }: Props) => {
         duration: 1.5,
         opacity: '1',
         delay: fadeInDelay,
-
-        onComplete: () => {
-          gsap.to(`.gsap-text-${index}`, {
-            scale: 1.7,
-            y: '-180px',
-            ease: 'sine.out',
-            delay: fadeOutDelay,
-            duration: 3,
-            opacity: '0',
-            filter: 'blur(27px)',
-          });
-        },
       });
     },
     {

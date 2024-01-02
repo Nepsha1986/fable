@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import TweenVars = gsap.TweenVars;
 
 import SceneContext from '@/components/Scene/context';
 
@@ -8,36 +9,41 @@ import styles from './styles.module.scss';
 
 interface Props {
   children: React.ReactNode;
+  animationRules?: TweenVars;
+  animateOnScroll?: boolean;
 }
 
-const Heading = ({ children }: Props) => {
+const Heading = ({ children, animationRules, animateOnScroll }: Props) => {
   const { container } = useContext(SceneContext);
+  const headingRef = useRef(null);
+
+  const defaultAnimation: TweenVars = {
+    scrollTrigger: animateOnScroll
+      ? {
+          trigger: container.current,
+          start: 'top top',
+          end: 'bottom top',
+        }
+      : undefined,
+    ease: 'sine.in',
+    duration: 1.5,
+    opacity: '1',
+  };
 
   useGSAP(
     () => {
-      gsap.to('.gsap-heading', {
-        ease: 'sine.in',
-        duration: 1.5,
-        opacity: '1',
-        onComplete: () => {
-          gsap.to('.gsap-heading', {
-            scale: 1.75,
-            y: '-180px',
-            ease: 'sine.out',
-            delay: 2.5,
-            duration: 3,
-            opacity: '0',
-            filter: 'blur(27px)',
-          });
-        },
-      });
+      gsap.to(headingRef.current, animationRules || defaultAnimation);
     },
     {
       scope: container,
     },
   );
 
-  return <h1 className={`${styles.heading} gsap-heading`}>{children}</h1>;
+  return (
+    <h1 ref={headingRef} className={`${styles.heading}`}>
+      {children}
+    </h1>
+  );
 };
 
 export default Heading;
