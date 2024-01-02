@@ -20,7 +20,7 @@ const Heading = ({ children, animationRules, animateOnScroll }: Props) => {
   const defaultAnimation: TweenVars = {
     scrollTrigger: animateOnScroll
       ? {
-          trigger: container.current,
+          trigger: headingRef.current,
           start: 'top top',
           end: 'bottom top',
         }

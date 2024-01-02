@@ -15,8 +15,14 @@ interface Props {
   children: React.ReactNode;
   background?: string;
   debug?: boolean;
+  minHeight?: string;
 }
-const Scene = ({ children, background, debug }: Props) => {
+const Scene = ({
+  children,
+  background,
+  debug,
+  minHeight = '100dvh',
+}: Props) => {
   const container = useRef<HTMLElement | null>(null);
   const sceneRef = useRef<HTMLElement | null>(null);
 
@@ -71,7 +77,7 @@ const Scene = ({ children, background, debug }: Props) => {
           // @ts-ignore
           ref={sceneRef}
           className={styles.scene}
-          style={{ perspectiveOrigin: '50% 0%' }}
+          style={{ perspectiveOrigin: '50% 0%', minHeight }}
         >
           {!!Layers.length &&
             Layers.map((Child) => cloneElement(Child as React.ReactElement))}

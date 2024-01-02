@@ -1,38 +1,30 @@
-$flor_color: linear-gradient(
-  to bottom,
-  #310000,
-  #380101,
-  #400002,
-  #470001,
-  #4f0000
-);
-$back_color: #310000;
-
 $box_depth: 300px;
 
 $flor_color: transparent;
 .scene {
-  height: 100dvh;
   overflow: hidden;
   perspective: 600px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s perspective-origin;
 
   &__content {
-    display: flex;
-    align-items: center;
+    text-align: center;
     padding: 20px;
     width: 100%;
-    max-width: 450px;
-    top: 10%;
-    left: 10%;
-    position: relative;
+    max-width: 80%;
+
+    h1 {
+      margin-bottom: 2rem;
+    }
   }
 
   &__floor {
     width: 100%;
     height: $box_depth;
     transform-origin: bottom left;
-    background: $flor_color;
     transform: rotateX(90deg);
     position: absolute;
     bottom: 0;
@@ -44,7 +36,6 @@ $flor_color: transparent;
     width: 100%;
     height: $box_depth;
     transform-origin: top left;
-    background: $flor_color;
     transform: rotateX(-90deg);
     position: absolute;
     top: 0;
@@ -56,7 +47,6 @@ $flor_color: transparent;
     height: 100%;
     width: $box_depth;
     transform-origin: top left;
-    background: $flor_color;
     transform: rotateY(90deg);
     position: absolute;
     top: 0;
@@ -68,7 +58,6 @@ $flor_color: transparent;
     height: 100%;
     width: $box_depth;
     transform-origin: top right;
-    background: $flor_color;
     transform: rotateY(-90deg);
     position: absolute;
     top: 0;

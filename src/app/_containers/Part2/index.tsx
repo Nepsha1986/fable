@@ -18,18 +18,28 @@ const cloudsAnimation = {
   } as TweenVars,
 };
 
-const Part1 = () => {
+const Part2 = () => {
   return (
-    <Scene background="#1e1e1e" debug>
-      <Scene.Layer width="100%" height="auto" imgSrc={img.src} depth={0.1} />
-      <Scene.Layer
-        width="150px"
-        height="150px"
+    <Scene background="linear-gradient(to bottom, #000922, #00455f, #008686, #74c693, #f6ff9d)">
+      <Scene.Item
+        width="30%"
         top="10%"
-        right="80%"
-        imgSrc={moon.src}
-        depth={0.1}
-      />
+        right="-20%"
+        depth={-600}
+        animated={{
+          scrollProps: {
+            start: 'top bottom',
+            end: '10% top',
+            scrub: true,
+          },
+          animatedProps: {
+            ease: 'sine',
+            opacity: 0,
+          },
+        }}
+      >
+        <img src={moon.src} alt="moon" />
+      </Scene.Item>
 
       <Scene.Item
         width="80px"
@@ -162,4 +172,4 @@ const Part1 = () => {
   );
 };
 
-export default Part1;
+export default Part2;
