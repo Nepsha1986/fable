@@ -8,13 +8,14 @@ $flor_color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.2s perspective-origin;
 
   &__content {
     text-align: center;
     padding: 20px;
     width: 100%;
     max-width: 80%;
+    position: relative;
+    text-shadow: 1px 1px 1px #000;
 
     h1 {
       margin-bottom: 2rem;

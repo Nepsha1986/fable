@@ -4,15 +4,19 @@ import Star from '@/components/Star';
 import { generateCoordinates } from '@/utils';
 
 const Part1 = () => {
-  const stars = generateCoordinates(250, -50);
+  const stars = generateCoordinates(250, {
+    xMin: -10,
+    xMax: 110,
+  });
 
   return (
     <Scene
       background="linear-gradient(to top, #000922, #000a1c, #000914, #00060a, #000101)"
       overflow="visible"
     >
-      {stars.map((i) => (
+      {stars.map((i, index) => (
         <Scene.Item
+          key={index}
           top={i.y}
           left={i.x}
           depth={i.depth}

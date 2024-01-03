@@ -1,29 +1,25 @@
 'use client';
 import Scene from '@/components/Scene';
-import img from './bg-1.png';
 import moon from './moon.png';
-import Cloud from '@/app/_containers/Part2/Cloud';
-import TweenVars = gsap.TweenVars;
-import { generateCoordinates } from '@/utils';
-
-const cloudsAnimation = {
-  scrollProps: {
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true,
-  },
-  animatedProps: {
-    ease: 'sine',
-    y: -50,
-    x: 400,
-  } as TweenVars,
-};
+import Cloud, { Clouds } from './Cloud';
+import Sun from './Sun';
+import { generateCoordinates, generateRandomNumber } from '@/utils';
+import React from 'react';
 
 const Part2 = () => {
-  const clouds = generateCoordinates(10, 1);
+  const clouds = generateCoordinates(21, {
+    yMin: 55,
+    yMax: 85,
+    xMin: -20,
+    xMax: 120,
+    depthMin: -200,
+  });
 
   return (
-    <Scene background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)">
+    <Scene
+      background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)"
+      minHeight="110dvh"
+    >
       <Scene.Item
         width="30%"
         top="10%"
@@ -32,7 +28,7 @@ const Part2 = () => {
         animated={{
           scrollProps: {
             start: 'top bottom',
-            end: '10% top',
+            end: '15% top',
             scrub: true,
           },
           animatedProps: {
@@ -44,50 +40,34 @@ const Part2 = () => {
         <img src={moon.src} alt="moon" />
       </Scene.Item>
 
-      {clouds.map((i) => (
-        <Scene.Item
-          width="180px"
-          height="180px"
-          top={i.y}
-          left={i.x}
-          depth={i.depth}
-        >
-          <Cloud type="1" />
-        </Scene.Item>
-      ))}
-
-      <Scene.Item
-        width="130px"
-        height="130px"
-        top="6%"
-        depth={-120}
-        left="29%"
-        animated={cloudsAnimation}
-      >
-        <Cloud type="2" color="#fff" />
+      <Scene.Item width="30%" bottom="-15%" left="-5%" depth={-100}>
+        <Sun />
       </Scene.Item>
 
-      <Scene.Item
-        width="130px"
-        height="130px"
-        top="29%"
-        depth={-70}
-        left="64%"
-        animated={cloudsAnimation}
-      >
-        <Cloud type="3" />
-      </Scene.Item>
+      {clouds.map((i, index) => {
+        const size = `${generateRandomNumber(100, 200)}px`;
+        const cloudType = `${generateRandomNumber(
+          1,
+          7,
+        )}` as keyof typeof Clouds;
 
-      <Scene.Item
-        width="130px"
-        height="130px"
-        top="17%"
-        depth={-6}
-        left="34%"
-        animated={cloudsAnimation}
-      >
-        <Cloud type="4" />
-      </Scene.Item>
+        return (
+          <Scene.Item
+            width={size}
+            height={size}
+            bottom={i.y}
+            left={i.x}
+            depth={i.depth}
+            key={index}
+          >
+            <div
+              style={{ filter: 'drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7))' }}
+            >
+              <Cloud type={cloudType} />
+            </div>
+          </Scene.Item>
+        );
+      })}
 
       <Scene.Item width="100%" height="auto" depth={-30} bottom="0px">
         <svg
