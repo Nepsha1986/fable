@@ -41,7 +41,31 @@ const Part2 = () => {
         <img src={moon.src} alt="moon" />
       </Scene.Item>
 
-      <Scene.Item width="30%" bottom="-15%" left="-5%" depth={-100}>
+      <Scene.Item
+        width="30%"
+        bottom="-15%"
+        left="-5%"
+        depth={-100}
+        animated={{
+          scrollProps: {
+            start: 'top -10%',
+            end: 'top -75%',
+            scrub: true,
+          },
+          animatedProps: {
+            ease: 'sine',
+            motionPath: {
+              path: [
+                { x: -150, y: 250 },
+                { x: 150, y: -100 },
+                { x: 300, y: -200 },
+                { x: 450, y: -400 },
+              ],
+              type: 'cubic',
+            },
+          },
+        }}
+      >
         <Sun />
       </Scene.Item>
 
@@ -60,6 +84,17 @@ const Part2 = () => {
             left={i.x}
             depth={i.depth}
             key={index}
+            animated={{
+              scrollProps: {
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+              },
+              animatedProps: {
+                ease: 'sine',
+                x: generateRandomNumber(-300, -50),
+              },
+            }}
           >
             <div
               style={{ filter: 'drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7))' }}
