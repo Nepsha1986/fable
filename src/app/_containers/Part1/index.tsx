@@ -35,14 +35,16 @@ const Part1 = () => {
           <Star />
         </Scene.Item>
       ))}
-      <Scene.Heading>The Fable</Scene.Heading>
-      <Scene.Text>
-        As Lila delved deeper into the mysteries of Eldoria, she discovered a
-        prophecy foretelling her role in saving the realm from an impending
-        darkness, and with newfound allies, she braved treacherous terrains,
-        solving riddles and overcoming obstacles that guarded the path to the
-        Moonstone.
-      </Scene.Text>
+      <Scene.TextBlock>
+        <h1>The Fable</h1>
+        <p>
+          As Lila delved deeper into the mysteries of Eldoria, she discovered a
+          prophecy foretelling her role in saving the realm from an impending
+          darkness, and with newfound allies, she braved treacherous terrains,
+          solving riddles and overcoming obstacles that guarded the path to the
+          Moonstone.
+        </p>
+      </Scene.TextBlock>
     </Scene>
   );
 };

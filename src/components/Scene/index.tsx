@@ -1,9 +1,7 @@
 'use client';
 import React, { cloneElement, MutableRefObject, useRef } from 'react';
 
-import Heading from './Heading';
-import Text from './Text';
-import Layer from './Layer';
+import TextBlock from './TextBlock';
 import Item from './Item';
 import SceneContext from './context';
 
@@ -28,11 +26,7 @@ const Scene = ({
   const container = useRef<HTMLElement | null>(null);
   const sceneRef = useRef<HTMLElement | null>(null);
 
-  type SceneComponentType =
-    | typeof Scene.Text
-    | typeof Scene.Heading
-    | typeof Scene.Item
-    | typeof Scene.Layer;
+  type SceneComponentType = typeof Scene.TextBlock | typeof Scene.Item;
 
   const getComponent = (el: SceneComponentType): React.ReactNode =>
     React.Children.toArray(children).find(
@@ -44,9 +38,7 @@ const Scene = ({
       (child) => (child as React.ReactElement).type === el,
     );
 
-  const Heading = getComponent(Scene.Heading) || null;
-  const Texts = getComponents(Scene.Text) || null;
-  const Layers = getComponents(Scene.Layer) || null;
+  const Text = getComponent(Scene.TextBlock) || null;
   const Items = getComponents(Scene.Item) || null;
 
   useGSAP(
@@ -81,8 +73,8 @@ const Scene = ({
           className={styles.scene}
           style={{ perspectiveOrigin: '50% 0%', minHeight, overflow }}
         >
-          {!!Layers.length &&
-            Layers.map((Child) => cloneElement(Child as React.ReactElement))}
+          {!!Items.length &&
+            Items.map((Child) => cloneElement(Child as React.ReactElement))}
 
           {debug && (
             <>
@@ -93,29 +85,14 @@ const Scene = ({
             </>
           )}
 
-          {!!Items.length &&
-            Items.map((Child) => cloneElement(Child as React.ReactElement))}
-
-          <div className={styles.scene__content}>
-            <div>
-              {Heading}
-              {!!Texts.length &&
-                Texts.map((Child, index) =>
-                  cloneElement(Child as React.ReactElement, {
-                    index: index + 1,
-                  }),
-                )}
-            </div>
-          </div>
+          {Text && <div className={styles.scene__content}>{Text}</div>}
         </div>
       </section>
     </SceneContext.Provider>
   );
 };
 
-Scene.Heading = Heading;
-Scene.Text = Text;
-Scene.Layer = Layer;
+Scene.TextBlock = TextBlock;
 Scene.Item = Item;
 
 export default Scene;

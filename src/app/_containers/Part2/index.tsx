@@ -27,12 +27,13 @@ const Part2 = () => {
         depth={-600}
         animated={{
           scrollProps: {
-            start: 'top bottom',
+            start: 'top 15%',
             end: '15% top',
             scrub: true,
           },
           animatedProps: {
             ease: 'sine',
+            scale: 0.95,
             opacity: 0,
           },
         }}
@@ -140,18 +141,15 @@ const Part2 = () => {
         </svg>
       </Scene.Item>
 
-      <Scene.Text>
-        <span>As Lila delved deeper into the mysteries of Eldoria, </span>
-        <span>
-          she discovered a prophecy foretelling her role in saving the realm{' '}
-        </span>
-        <span>from an impending darkness, </span>
-        <span>
-          and with newfound allies, she braved treacherous terrains, solving
-          riddles and overcoming obstacles that guarded the path to the
+      <Scene.TextBlock>
+        <p>
+          As Lila delved deeper into the mysteries of Eldoria, she discovered a
+          prophecy foretelling her role in saving the realm from an impending
+          darkness,and with newfound allies, she braved treacherous terrains,
+          solving riddles and overcoming obstacles that guarded the path to the
           Moonstone.
-        </span>
-      </Scene.Text>
+        </p>
+      </Scene.TextBlock>
     </Scene>
   );
 };
