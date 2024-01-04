@@ -2,12 +2,21 @@
 import Scene from '@/components/Scene';
 import Star from '@/components/Star';
 import { generateCoordinates } from '@/utils';
+import { useEffect, useState } from 'react';
 
 const Part1 = () => {
-  const stars = generateCoordinates(250, {
-    xMin: -10,
-    xMax: 110,
-  });
+  const [stars, setStars] = useState<
+    Array<{ x: string; y: string; depth: number }>
+  >([]);
+
+  useEffect(() => {
+    setStars(
+      generateCoordinates(250, {
+        xMin: -10,
+        xMax: 110,
+      }),
+    );
+  }, []);
 
   return (
     <Scene
@@ -15,23 +24,7 @@ const Part1 = () => {
       overflow="visible"
     >
       {stars.map((i, index) => (
-        <Scene.Item
-          key={index}
-          top={i.y}
-          left={i.x}
-          depth={i.depth}
-          animated={{
-            scrollProps: {
-              start: 'top top',
-              end: '90% top',
-              scrub: true,
-            },
-            animatedProps: {
-              ease: 'sine',
-              opacity: 0,
-            },
-          }}
-        >
+        <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
           <Star />
         </Scene.Item>
       ))}

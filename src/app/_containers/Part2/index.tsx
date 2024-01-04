@@ -1,71 +1,39 @@
 'use client';
+
 import Scene from '@/components/Scene';
 import moon from './moon.png';
 import Cloud, { Clouds } from './Cloud';
 import Sun from './Sun';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Part2 = () => {
-  const clouds = generateCoordinates(21, {
-    yMin: 55,
-    yMax: 85,
-    xMin: -20,
-    xMax: 120,
-    depthMin: -200,
-  });
+  const [clouds, setClouds] = useState<
+    Array<{ x: string; y: string; depth: number }>
+  >([]);
+
+  useEffect(() => {
+    setClouds(
+      generateCoordinates(21, {
+        yMin: 55,
+        yMax: 85,
+        xMin: -20,
+        xMax: 120,
+        depthMin: -200,
+      }),
+    );
+  }, []);
 
   return (
     <Scene
       background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)"
       minHeight="110dvh"
     >
-      <Scene.Item
-        width="30%"
-        top="10%"
-        right="-20%"
-        depth={-600}
-        animated={{
-          scrollProps: {
-            start: 'top 15%',
-            end: '15% top',
-            scrub: true,
-          },
-          animatedProps: {
-            ease: 'sine',
-            scale: 0.95,
-            opacity: 0,
-          },
-        }}
-      >
+      <Scene.Item width="30%" top="10%" right="-20%" depth={-600}>
         <img src={moon.src} alt="moon" />
       </Scene.Item>
 
-      <Scene.Item
-        width="30%"
-        bottom="-15%"
-        left="-5%"
-        depth={-100}
-        animated={{
-          scrollProps: {
-            start: 'top -10%',
-            end: 'top -75%',
-            scrub: true,
-          },
-          animatedProps: {
-            ease: 'sine',
-            motionPath: {
-              path: [
-                { x: -150, y: 250 },
-                { x: 150, y: -100 },
-                { x: 300, y: -200 },
-                { x: 450, y: -400 },
-              ],
-              type: 'cubic',
-            },
-          },
-        }}
-      >
+      <Scene.Item width="30%" bottom="-15%" left="-5%" depth={-100}>
         <Sun />
       </Scene.Item>
 
@@ -84,17 +52,6 @@ const Part2 = () => {
             left={i.x}
             depth={i.depth}
             key={index}
-            animated={{
-              scrollProps: {
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1,
-              },
-              animatedProps: {
-                ease: 'sine',
-                x: generateRandomNumber(-300, -50),
-              },
-            }}
           >
             <div
               style={{ filter: 'drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7))' }}

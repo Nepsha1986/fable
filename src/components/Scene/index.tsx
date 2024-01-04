@@ -1,13 +1,11 @@
 'use client';
-import React, { cloneElement, ElementRef, useRef } from 'react';
+import React, { cloneElement, ElementRef, useRef, useState } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 import TextBlock from './TextBlock';
 import Item from './Item';
-import SceneContext from './context';
 
 import styles from './styles.module.scss';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
 
 interface Props {
   children: React.ReactNode;
@@ -23,8 +21,17 @@ const Scene = ({
   minHeight = '100dvh',
   overflow = 'hidden',
 }: Props) => {
-  const container = useRef<ElementRef<'section'>>(null);
   const sceneRef = useRef<ElementRef<'div'>>(null);
+  const [scrollPosition, setScrollPosition] = useState<number>(50);
+
+  const { scrollYProgress } = useScroll({
+    target: sceneRef,
+    offset: ['start end', 'end start'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    setScrollPosition(latest);
+  });
 
   type SceneComponentType = typeof Scene.TextBlock | typeof Scene.Item;
 
@@ -41,51 +48,31 @@ const Scene = ({
   const Text = getComponent(Scene.TextBlock) || null;
   const Items = getComponents(Scene.Item) || null;
 
-  useGSAP(
-    () => {
-      // @ts-ignore
-      const movement = sceneRef.current.offsetHeight * 0.25;
-
-      gsap.to(sceneRef.current, {
-        scrollTrigger: {
-          trigger: container.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-        ease: 'sine.in',
-        perspectiveOrigin: `50% ${movement}%`,
-      });
-    },
-    {
-      scope: container,
-    },
-  );
-
   return (
-    <SceneContext.Provider value={{ container: container }}>
-      <section ref={container} style={{ background }}>
-        <div
-          ref={sceneRef}
-          className={styles.scene}
-          style={{ perspectiveOrigin: '50% 0%', minHeight, overflow }}
-        >
-          {!!Items.length &&
-            Items.map((Child) => cloneElement(Child as React.ReactElement))}
+    <section ref={sceneRef} style={{ background }}>
+      <motion.div
+        className={styles.scene}
+        style={{
+          perspectiveOrigin: `50% ${scrollPosition * 100}%`,
+          minHeight,
+          overflow,
+        }}
+      >
+        {!!Items.length &&
+          Items.map((Child) => cloneElement(Child as React.ReactElement))}
 
-          {debug && (
-            <>
-              <div className={styles.scene__roof} />
-              <div className={styles.scene__floor} />
-              <div className={styles.scene__wallLeft} />
-              <div className={styles.scene__wallRight} />
-            </>
-          )}
+        {debug && (
+          <>
+            <div className={styles.scene__roof} />
+            <div className={styles.scene__floor} />
+            <div className={styles.scene__wallLeft} />
+            <div className={styles.scene__wallRight} />
+          </>
+        )}
 
-          {Text && <div className={styles.scene__content}>{Text}</div>}
-        </div>
-      </section>
-    </SceneContext.Provider>
+        {Text && <div className={styles.scene__content}>{Text}</div>}
+      </motion.div>
+    </section>
   );
 };
 
