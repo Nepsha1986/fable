@@ -1,5 +1,5 @@
 'use client';
-import React, { cloneElement, MutableRefObject, useRef } from 'react';
+import React, { cloneElement, ElementRef, useRef } from 'react';
 
 import TextBlock from './TextBlock';
 import Item from './Item';
@@ -23,8 +23,8 @@ const Scene = ({
   minHeight = '100dvh',
   overflow = 'hidden',
 }: Props) => {
-  const container = useRef<HTMLElement | null>(null);
-  const sceneRef = useRef<HTMLElement | null>(null);
+  const container = useRef<ElementRef<'section'>>(null);
+  const sceneRef = useRef<ElementRef<'div'>>(null);
 
   type SceneComponentType = typeof Scene.TextBlock | typeof Scene.Item;
 
@@ -63,12 +63,9 @@ const Scene = ({
   );
 
   return (
-    <SceneContext.Provider
-      value={{ container: container as MutableRefObject<HTMLElement> }}
-    >
+    <SceneContext.Provider value={{ container: container }}>
       <section ref={container} style={{ background }}>
         <div
-          // @ts-ignore
           ref={sceneRef}
           className={styles.scene}
           style={{ perspectiveOrigin: '50% 0%', minHeight, overflow }}

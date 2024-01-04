@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Bubble = ({ color = '#fff', size = '20' }) => {
+const Bubble = ({ color = '#fff', size = 20 }) => {
   return (
     <svg
       width={size}

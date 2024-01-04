@@ -1,7 +1,7 @@
-import { createContext, MutableRefObject } from 'react';
+import { createContext, ElementRef } from 'react';
 
 interface SceneContextProps {
-  container: MutableRefObject<HTMLElement>;
+  container: ElementRef<any>;
 }
 
 const SceneContext = createContext<SceneContextProps>({} as SceneContextProps);

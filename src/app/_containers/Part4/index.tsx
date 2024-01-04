@@ -2,11 +2,11 @@ import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates } from '@/utils';
 
-const Part3 = () => {
+const Part4 = () => {
   const bubbles = generateCoordinates(250);
 
   return (
-    <Scene background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb);">
+    <Scene background="linear-gradient(to bottom, #2d23eb, #2419c3, #1a109c, #110878, #070255)">
       {bubbles.map((i, index) => (
         <Scene.Item
           key={index}
@@ -29,7 +29,7 @@ const Part3 = () => {
         </Scene.Item>
       ))}
       <Scene.TextBlock>
-        <h1>Part 3</h1>
+        <h1>Part 4</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis
           libero maiores molestias quae vel vero! Aliquam delectus dicta
@@ -40,4 +40,4 @@ const Part3 = () => {
   );
 };
 
-export default Part3;
+export default Part4;
