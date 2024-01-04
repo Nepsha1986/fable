@@ -1,11 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
-import { generateCoordinates, generateRandomNumber } from '@/utils';
-import React, { useEffect, useState } from 'react';
-import Sand from '@/components/Sand';
 import Fish from '@/components/Fish';
+import { generateCoordinates, generateRandomNumber } from '@/utils';
 
 const Part3 = () => {
   const [bubbles, setBubbles] = useState<
@@ -36,7 +35,6 @@ const Part3 = () => {
   return (
     <Scene
       background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb)"
-      overflow="visible"
     >
       {bubbles.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
