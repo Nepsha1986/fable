@@ -2,13 +2,10 @@
 
 import Scene from '@/components/Scene';
 import moon from './moon.png';
-import island from '@/temp/island.png';
 import Cloud, { Clouds } from './Cloud';
 import Sun from './Sun';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 import React, { useEffect, useState } from 'react';
-import Island from '@/components/Island';
-import Sand from '@/components/Sand';
 import Ship from '@/components/Ship';
 
 const Part2 = () => {
@@ -86,19 +83,6 @@ const Part2 = () => {
         </svg>
       </Scene.Item>
 
-      {/*<Scene.Item width="200px" bottom="7%" right="10%" depth={-50}>*/}
-      {/*  <Island />*/}
-      {/*</Scene.Item>*/}
-
-      {/*<Scene.Item*/}
-      {/*  width="20vw"*/}
-      {/*  bottom="-2%"*/}
-      {/*  right="10%"*/}
-      {/*  depth={-150}*/}
-      {/*>*/}
-      {/*  <Ship />*/}
-      {/*</Scene.Item>*/}
-
       <Scene.Item width="120%" depth={-15} bottom="0" left="-10%">
         <svg
           id="wave"
@@ -154,16 +138,6 @@ const Part2 = () => {
           ></path>
         </svg>
       </Scene.Item>
-
-      <Scene.TextBlock>
-        <p>
-          As Lila delved deeper into the mysteries of Eldoria, she discovered a
-          prophecy foretelling her role in saving the realm from an impending
-          darkness,and with newfound allies, she braved treacherous terrains,
-          solving riddles and overcoming obstacles that guarded the path to the
-          Moonstone.
-        </p>
-      </Scene.TextBlock>
     </Scene>
   );
 };

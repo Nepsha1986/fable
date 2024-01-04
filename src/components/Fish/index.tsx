@@ -1,11 +1,6 @@
 const Fish = () => {
   return (
-    <svg
-      width="800px"
-      height="800px"
-      viewBox="0 0 128 128"
-      preserveAspectRatio="xMidYMid meet"
-    >
+    <svg viewBox="0 0 128 128" preserveAspectRatio="xMidYMid meet">
       <linearGradient
         id="IconifyId17ecdb2904d178eab8769"
         gradientUnits="userSpaceOnUse"

@@ -38,14 +38,14 @@ const Part3 = () => {
       background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb)"
       overflow="visible"
     >
-      \
       {bubbles.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
           <Bubble />
         </Scene.Item>
       ))}
       {fishes.map((i, index) => {
-        const size = generateRandomNumber(25, 40);
+        const size = generateRandomNumber(15, 40);
+
         return (
           <Scene.Item
             key={index}
@@ -59,14 +59,6 @@ const Part3 = () => {
           </Scene.Item>
         );
       })}
-      <Scene.TextBlock>
-        <h1>Part 3</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis
-          libero maiores molestias quae vel vero! Aliquam delectus dicta
-          voluptatum?
-        </p>
-      </Scene.TextBlock>
     </Scene>
   );
 };

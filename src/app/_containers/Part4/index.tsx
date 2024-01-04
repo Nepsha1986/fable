@@ -21,14 +21,6 @@ const Part4 = () => {
           <Bubble />
         </Scene.Item>
       ))}
-      <Scene.TextBlock>
-        <h1>Part 4</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis
-          libero maiores molestias quae vel vero! Aliquam delectus dicta
-          voluptatum?
-        </p>
-      </Scene.TextBlock>
     </Scene>
   );
 };

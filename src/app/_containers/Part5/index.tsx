@@ -15,20 +15,12 @@ const Part5 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #070255, #010548, #02053b, #05032d, #03011f);">
+    <Scene background="linear-gradient(to bottom, #070255, #010548, #02053b, #05032d, #03011f)">
       {bubbles.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
           <Bubble />
         </Scene.Item>
       ))}
-      <Scene.TextBlock>
-        <h1>Part 5</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis
-          libero maiores molestias quae vel vero! Aliquam delectus dicta
-          voluptatum?
-        </p>
-      </Scene.TextBlock>
     </Scene>
   );
 };
