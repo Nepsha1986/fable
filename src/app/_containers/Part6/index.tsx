@@ -15,7 +15,7 @@ const Part6 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #03011f, #03011c, #020019, #020016, #010012);">
+    <Scene background="linear-gradient(to bottom, #03011f, #03011c, #020019, #020016, #010012)">
       {bubbles.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
           <Bubble size={generateRandomNumber(3, 25)} />
