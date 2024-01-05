@@ -11,7 +11,7 @@ const Part4 = () => {
   >([]);
 
   useEffect(() => {
-    setBubbles(generateCoordinates(250));
+    setBubbles(generateCoordinates(50));
   }, []);
 
   return (

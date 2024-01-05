@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
-import Fish from '@/components/Fish';
+import Fish, { Fishes } from '@/components/Fish';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
 const Part3 = () => {
@@ -11,19 +11,29 @@ const Part3 = () => {
     Array<{ x: string; y: string; depth: number }>
   >([]);
 
-  const [fishes, setFishes] = useState<
+  const [fishPack, setFishPack] = useState<
+    Array<{ x: string; y: string; depth: number }>
+  >([]);
+
+  const [bgFishes, setBgFishes] = useState<
     Array<{ x: string; y: string; depth: number }>
   >([]);
 
   useEffect(() => {
-    setBubbles(generateCoordinates(250));
-  }, []);
-
-  useEffect(() => {
-    setFishes(
+    setBubbles(generateCoordinates(50));
+    setBgFishes(
+      generateCoordinates(20, {
+        depthMax: -300,
+        depthMin: -500,
+        xMax: 120,
+        xMin: -20,
+        yMax: 80,
+      }),
+    );
+    setFishPack(
       generateCoordinates(50, {
-        yMin: 10,
-        yMax: 20,
+        yMin: 80,
+        yMax: 90,
         depthMax: -10,
         depthMin: -100,
         xMax: 110,
@@ -33,21 +43,35 @@ const Part3 = () => {
   }, []);
 
   return (
-    <Scene
-      background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb)"
-    >
+    <Scene background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb)">
       {bubbles.map((i, index) => (
-        <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
+        <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>
           <Bubble />
         </Scene.Item>
       ))}
-      {fishes.map((i, index) => {
+
+      {bgFishes.map((i, index) => {
+        const size = generateRandomNumber(50, 200);
+
+        return (
+          <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>
+            <Fish
+              flip={!!generateRandomNumber(0, 1)}
+              color={`rgba(6,83,167, ${1})`}
+              size={`${size}px`}
+              type={`${generateRandomNumber(2, 3)}` as keyof typeof Fishes}
+            />
+          </Scene.Item>
+        );
+      })}
+
+      {fishPack.map((i, index) => {
         const size = generateRandomNumber(15, 40);
 
         return (
           <Scene.Item
             key={index}
-            top={i.y}
+            bottom={i.y}
             left={i.x}
             depth={i.depth}
             height={`${size}px}`}
