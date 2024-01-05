@@ -1,7 +1,7 @@
 'use client';
 import Scene from '@/components/Scene';
 import Star from '@/components/Star';
-import { generateCoordinates } from '@/utils';
+import { generateCoordinates, generateRandomNumber } from '@/utils';
 import { useEffect, useState } from 'react';
 
 const Part1 = () => {
@@ -11,7 +11,7 @@ const Part1 = () => {
 
   useEffect(() => {
     setStars(
-      generateCoordinates(250, {
+      generateCoordinates(150, {
         xMin: -10,
         xMax: 110,
       }),
@@ -25,7 +25,7 @@ const Part1 = () => {
     >
       {stars.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
-          <Star />
+          <Star size={generateRandomNumber(3, 8)} />
         </Scene.Item>
       ))}
       <Scene.TextBlock>

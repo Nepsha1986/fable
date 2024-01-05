@@ -44,11 +44,11 @@ const Part3 = () => {
 
   return (
     <Scene background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb)">
-      {bubbles.map((i, index) => (
-        <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>
-          <Bubble />
-        </Scene.Item>
-      ))}
+      {/*{bubbles.map((i, index) => (*/}
+      {/*  <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>*/}
+      {/*    <Bubble />*/}
+      {/*  </Scene.Item>*/}
+      {/*))}*/}
 
       {bgFishes.map((i, index) => {
         const size = generateRandomNumber(50, 200);

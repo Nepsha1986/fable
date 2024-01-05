@@ -1,9 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
-import { useEffect, useState } from 'react';
 
 const Part6 = () => {
   const [bubbles, setBubbles] = useState<
@@ -23,11 +24,7 @@ const Part6 = () => {
       ))}
       <Scene.TextBlock>
         <h1>Part 6</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. At corporis
-          libero maiores molestias quae vel vero! Aliquam delectus dicta
-          voluptatum?
-        </p>
+        <p>https://www.uidownload.com/en/vector-jnkoh</p>
       </Scene.TextBlock>
     </Scene>
   );

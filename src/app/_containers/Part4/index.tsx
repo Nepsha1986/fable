@@ -1,9 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates } from '@/utils';
-import { useEffect, useState } from 'react';
 
 const Part4 = () => {
   const [bubbles, setBubbles] = useState<
