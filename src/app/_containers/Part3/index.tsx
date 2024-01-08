@@ -42,7 +42,7 @@ const Part3 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #a6bafd, #8199ff, #6077fd, #4352f6, #2d23eb)">
+    <Scene background="linear-gradient(to bottom, #5ac8d0, #00b0e4, #0092fe, #006bff, #2d22eb)">
       {bgFishes.map((i, index) => {
         const size = generateRandomNumber(50, 200);
 

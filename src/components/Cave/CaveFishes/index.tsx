@@ -1,6 +1,6 @@
 const Cave1 = () => {
   return (
-    <svg viewBox="0 0 1866.6667 1306.6667">
+    <svg fill="#1a1d3e" viewBox="0 0 1866.6667 1306.6667">
       <g transform="matrix(1.3333333,0,0,-1.3333333,0,1306.6667)" id="g10">
         <g transform="scale(0.1)" id="g12">
           <path
