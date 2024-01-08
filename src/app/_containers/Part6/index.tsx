@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
+import CaveDraft from '@/components/Cave/temp/CaveDraft';
 
 const Part6 = () => {
   const [bubbles, setBubbles] = useState<
@@ -26,6 +27,10 @@ const Part6 = () => {
         <h1>Part 6</h1>
         <p>https://www.uidownload.com/en/vector-jnkoh</p>
       </Scene.TextBlock>
+
+      {/*<Scene.Item width='100%'>*/}
+      {/*  <CaveDraft />*/}
+      {/*</Scene.Item>*/}
     </Scene>
   );
 };

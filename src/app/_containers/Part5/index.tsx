@@ -1,9 +1,15 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
+import Cave1 from '@/components/Cave/Cave1';
+import Cave2 from '@/components/Cave/Cave2';
+import Cave3 from '@/components/Cave/Cave3';
+
 import { generateCoordinates, generateRandomNumber } from '@/utils';
-import { useEffect, useState } from 'react';
+import CaveFishes from '@/components/Cave/CaveFishes';
 
 const Part5 = () => {
   const [bubbles, setBubbles] = useState<
@@ -19,7 +25,23 @@ const Part5 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #070255, #010548, #02053b, #05032d, #03011f)">
+    <Scene background="#677ffd" minHeight="120dvh">
+      <Scene.Item width="100%" depth={-150}>
+        <CaveFishes />
+      </Scene.Item>
+
+      <Scene.Item width="100%" depth={-50}>
+        <Cave3 />
+      </Scene.Item>
+
+      <Scene.Item width="100%" depth={-10}>
+        <Cave2 />
+      </Scene.Item>
+
+      <Scene.Item width="100%">
+        <Cave1 />
+      </Scene.Item>
+
       {bubbles.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
           <Bubble size={generateRandomNumber(3, 20)} />

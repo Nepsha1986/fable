@@ -1,6 +1,6 @@
 const Sea = () => {
-  const gradStart = '#001f64';
-  const gradMiddle = '#184cc0';
+  const gradStart = '#194dc4';
+  const gradMiddle = '#2a62dc';
   const gradEnd = '#80a4f5';
 
   const palmTreesColor = '#184cc0';
