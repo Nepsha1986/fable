@@ -18,9 +18,9 @@ const Sea = () => {
           y1="0"
           x1="0"
         >
-          <stop offset="0" stopColor={gradStart}/>
-          <stop offset="0.15" stopColor={gradMiddle}/>
-          <stop offset="1" stopColor={gradEnd}/>
+          <stop offset="0" stopColor={gradStart} />
+          <stop offset="0.15" stopColor={gradMiddle} />
+          <stop offset="1" stopColor={gradEnd} />
         </linearGradient>
       </defs>
       <g transform="matrix(1.3333333,0,0,-1.3333333,0,481.8)" id="g10">
@@ -31,7 +31,7 @@ const Sea = () => {
             d="M 2709.06,0 V 837.641 H 0 V 0 h 2709.06"
           />
 
-          <g id="palm_trees"  fill={palmTreesColor}>
+          <g id="palm_trees" fill={palmTreesColor}>
             <g id="g870">
               <g clipPath="url(#clipPath876)" id="g872">
                 <path

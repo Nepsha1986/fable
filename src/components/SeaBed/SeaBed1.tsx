@@ -31,7 +31,7 @@ const SeaBed1 = () => {
       <g transform="matrix(1.3333333,0,0,-1.3333333,0,1306.6667)" id="g10">
         <g transform="scale(0.1)" id="g12">
           <g id="g64">
-            <g clip-path="url(#clipPath70)" id="g66">
+            <g clipPath="url(#clipPath70)" id="g66">
               <path
                 id="path80"
                 fill="url(#linearGradient78)"

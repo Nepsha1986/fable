@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
-import SeaBed4 from "@/components/SeaBed/SeaBed4";
-import SeaBed3 from "@/components/SeaBed/SeaBed3";
-import SeaBed2 from "@/components/SeaBed/SeaBed2";
-import SeaBed1 from "@/components/SeaBed/SeaBed1";
+import SeaBed4 from '@/components/SeaBed/SeaBed4';
+import SeaBed3 from '@/components/SeaBed/SeaBed3';
+import SeaBed2 from '@/components/SeaBed/SeaBed2';
+import SeaBed1 from '@/components/SeaBed/SeaBed1';
 
 const Part4 = () => {
   const [bubbles, setBubbles] = useState<

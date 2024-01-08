@@ -45,7 +45,6 @@ const Part2 = () => {
       background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)"
       minHeight="200dvh"
     >
-
       <Scene.Item width="40vw" bottom="10%" left="-15%" depth={-600}>
         <Sun />
       </Scene.Item>
