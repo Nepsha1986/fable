@@ -42,7 +42,7 @@ const Part3 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #5ac8d0, #00b0e4, #0092fe, #006bff, #2d22eb)">
+    <Scene background="linear-gradient(to bottom, #377afb, #2a20dd, #271ccf, #2318c1, #2014b4)">
       {bgFishes.map((i, index) => {
         const size = generateRandomNumber(50, 200);
 
@@ -50,7 +50,7 @@ const Part3 = () => {
           <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>
             <Fish
               flip={!!generateRandomNumber(0, 1)}
-              color={`rgba(6,83,167, ${1})`}
+              color={`#01155b`}
               size={`${size}px`}
               type={`${generateRandomNumber(2, 3)}` as keyof typeof Fishes}
             />

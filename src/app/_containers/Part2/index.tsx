@@ -43,10 +43,10 @@ const Part2 = () => {
 
   return (
     <Scene
-      background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)"
+      background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)"
       minHeight="200dvh"
     >
-      <Scene.Item width="40vw" bottom="10%" left="-15%" depth={-600}>
+      <Scene.Item width="800px" bottom="-100px" left="-30%" depth={-600}>
         <Sun />
       </Scene.Item>
 
@@ -116,8 +116,8 @@ const Part2 = () => {
         <Wave
           id="third_wave"
           type="2"
-          startColor={'#5ac8d0'}
-          endColor={'#5ac8d0'}
+          startColor={'#377afb'}
+          endColor={'#377afb'}
         />
       </Scene.Item>
     </Scene>

@@ -20,7 +20,7 @@ const Part4 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #2d23eb, #2419c3, #1a109c, #110878, #070255)">
+    <Scene background="linear-gradient(to bottom, #2014b4, #2419c3, #1a109c, #110878, #070255)">
       <Scene.Item bottom="-5px" left="-17%" width="100%" depth={-350}>
         <SeaBed4 />
       </Scene.Item>

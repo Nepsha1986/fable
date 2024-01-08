@@ -6,8 +6,8 @@ const Sun = () => {
         r="20"
         cy="25"
         cx="25"
-        fill="#ffe160"
-        stroke="#fbeC5d"
+        fill={'#ffeea5'}
+        stroke={'#fffacd'}
         strokeWidth="3"
         strokeLinecap="round"
       >
@@ -31,7 +31,7 @@ const Sun = () => {
         />
       </circle>
 
-      <circle id="sun" r="13" cy="25" cx="25" fill="#ffe160" />
+      <circle id="sun" r="13" cy="25" cx="25" fill={'#fff3c5'} />
     </svg>
   );
 };
