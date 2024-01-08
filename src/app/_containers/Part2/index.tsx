@@ -7,6 +7,8 @@ import Sun from './Sun';
 import Bird from '@/components/Bird/Bird';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 import moon from './moon.png';
+import Island from '@/components/Island';
+import Sea from '@/components/Sea/Sea';
 
 const Part2 = () => {
   const [clouds, setClouds] = useState<
@@ -39,13 +41,17 @@ const Part2 = () => {
   }, []);
 
   return (
-    <Scene background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)">
-      <Scene.Item width="30%" top="10%" right="-20%" depth={-600}>
-        <img src={moon.src} alt="moon" />
+    <Scene
+      background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 , #74c693, #f6ff9d)"
+      minHeight="200dvh"
+    >
+
+      <Scene.Item width="40vw" bottom="10%" left="-15%" depth={-600}>
+        <Sun />
       </Scene.Item>
 
-      <Scene.Item width="40vw" bottom="-30%" left="-5%" depth={-100}>
-        <Sun />
+      <Scene.Item width="30%" top="10%" right="-20%" depth={-300}>
+        <img src={moon.src} alt="moon" />
       </Scene.Item>
 
       {clouds.map((i, index) => {
@@ -90,24 +96,12 @@ const Part2 = () => {
         );
       })}
 
-      <Scene.Item width="120%" left="-10%" bottom="10px" depth={-60}>
-        <svg
-          id="wave"
-          viewBox="0 0 1440 100"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="sw-gradient-8" x1="0" x2="0" y1="1" y2="0">
-              <stop stopColor="#040BBD" offset="0%"></stop>
-              <stop stopColor="rgba(11, 143.408, 255, 1)" offset="100%"></stop>
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#sw-gradient-8)"
-            d="M0,30L240,26.7C480,23,960,17,1440,20C1920,23,2400,37,2880,50C3360,63,3840,77,4320,83.3C4800,90,5280,90,5760,86.7C6240,83,6720,77,7200,68.3C7680,60,8160,50,8640,53.3C9120,57,9600,73,10080,68.3C10560,63,11040,37,11520,33.3C12000,30,12480,50,12960,51.7C13440,53,13920,37,14400,36.7C14880,37,15360,53,15840,50C16320,47,16800,23,17280,11.7C17760,0,18240,0,18720,13.3C19200,27,19680,53,20160,66.7C20640,80,21120,80,21600,80C22080,80,22560,80,23040,80C23520,80,24000,80,24480,80C24960,80,25440,80,25920,71.7C26400,63,26880,47,27360,45C27840,43,28320,57,28800,56.7C29280,57,29760,43,30240,38.3C30720,33,31200,37,31680,41.7C32160,47,32640,53,33120,51.7C33600,50,34080,40,34320,35L34560,30L34560,100L34320,100C34080,100,33600,100,33120,100C32640,100,32160,100,31680,100C31200,100,30720,100,30240,100C29760,100,29280,100,28800,100C28320,100,27840,100,27360,100C26880,100,26400,100,25920,100C25440,100,24960,100,24480,100C24000,100,23520,100,23040,100C22560,100,22080,100,21600,100C21120,100,20640,100,20160,100C19680,100,19200,100,18720,100C18240,100,17760,100,17280,100C16800,100,16320,100,15840,100C15360,100,14880,100,14400,100C13920,100,13440,100,12960,100C12480,100,12000,100,11520,100C11040,100,10560,100,10080,100C9600,100,9120,100,8640,100C8160,100,7680,100,7200,100C6720,100,6240,100,5760,100C5280,100,4800,100,4320,100C3840,100,3360,100,2880,100C2400,100,1920,100,1440,100C960,100,480,100,240,100L0,100Z"
-          ></path>
-        </svg>
+      <Scene.Item width="120%" left="-10%" bottom="-225px" depth={-80}>
+        <Island />
+      </Scene.Item>
+
+      <Scene.Item width="120%" left="-10%" bottom="-225px" depth={-80}>
+        <Sea />
       </Scene.Item>
 
       <Scene.Item width="120%" depth={-15} bottom="0" left="-10%">
