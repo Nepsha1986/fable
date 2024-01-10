@@ -1,11 +1,16 @@
-import React, { useContext, useRef } from 'react';
-
-import SceneContext from '@/components/Scene/context';
+import React, { useContext } from 'react';
 
 import styles from './styles.module.scss';
+import {
+  HTMLMotionProps,
+  motion,
+  MotionStyle,
+  MotionValue,
+} from 'framer-motion';
+import SceneContext from '@/components/Scene/context';
 
 interface Props {
-  children?: React.ReactNode;
+  children: React.ReactNode;
   width?: string;
   height?: string;
   transformOrigin?: string;
@@ -14,7 +19,7 @@ interface Props {
   left?: string;
   right?: string;
   depth?: number;
-  bgColor?: string;
+  scrollStyles?: (scrollYProgress: MotionValue) => MotionStyle;
 }
 
 const Item = ({
@@ -27,13 +32,13 @@ const Item = ({
   left,
   right,
   depth,
-}: Props) => {
-  const { container } = useContext(SceneContext);
-  const bgRef = useRef<HTMLDivElement>(null);
+  scrollStyles,
+  ...animation
+}: Props & HTMLMotionProps<'div'>) => {
+  const { container, scrollYProgress } = useContext(SceneContext);
 
   return (
     <div
-      ref={bgRef}
       className={styles.item}
       style={{
         transformOrigin,
@@ -46,7 +51,19 @@ const Item = ({
         transform: `translateZ(${depth}px)`,
       }}
     >
-      {children}
+      {!!scrollStyles ? (
+        <motion.div
+          data-testid="animated_item"
+          style={scrollStyles && scrollStyles(scrollYProgress)}
+          viewport={{
+            root: container.current,
+          }}
+        >
+          {children}
+        </motion.div>
+      ) : (
+        children
+      )}
     </div>
   );
 };

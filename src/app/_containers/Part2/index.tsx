@@ -7,7 +7,15 @@ import Sun from './Sun';
 import Bird from '@/components/Bird/Bird';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 import moon from './moon.png';
-import { BirdsGroup, CloudsGroup, CloudsGroup2, CloudsGroup3, Sea, Shore, PalmTrees } from '../../../canvas/Island';
+import {
+  BirdsGroup,
+  CloudsGroup,
+  CloudsGroup2,
+  CloudsGroup3,
+  Sea,
+  Shore,
+  PalmTrees,
+} from '@/canvas/Island';
 import Wave from '@/components/Wave';
 
 const Part2 = () => {
@@ -50,7 +58,16 @@ const Part2 = () => {
         <Sun />
       </Scene.Item>
 
-      <Scene.Item width="500px" top="10%" right="-20%" depth={-300}>
+      <Scene.Item
+        width="500px"
+        top="10%"
+        right="-20%"
+        depth={-300}
+        scrollStyles={(scrollYProgress) => {
+          const yPos = scrollYProgress.get();
+          return { opacity: 1 - yPos * 2, y: yPos * 1000 };
+        }}
+      >
         <img src={moon.src} alt="moon" />
       </Scene.Item>
 
@@ -102,6 +119,10 @@ const Part2 = () => {
             left={i.x}
             depth={i.depth}
             key={index}
+            scrollStyles={(scrollYProgress) => {
+              const yPos = scrollYProgress.get();
+              return { x: -yPos * 200 };
+            }}
           >
             <Bird />
           </Scene.Item>
@@ -116,7 +137,16 @@ const Part2 = () => {
         <Shore />
       </Scene.Item>
 
-      <Scene.Item width="100%" depth={-40} left="0%" bottom="-225px">
+      <Scene.Item
+        width="100%"
+        depth={-40}
+        left="0%"
+        bottom="-225px"
+        scrollStyles={(scrollYProgress) => {
+          const yPos = scrollYProgress.get();
+          return { x: yPos * 200, y: -yPos * 100 };
+        }}
+      >
         <BirdsGroup />
       </Scene.Item>
 

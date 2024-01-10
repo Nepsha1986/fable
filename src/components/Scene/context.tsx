@@ -1,7 +1,10 @@
-import { createContext, ElementRef } from 'react';
+import { createContext, RefObject } from 'react';
+import { MotionValue } from 'framer-motion';
 
 interface SceneContextProps {
-  container: ElementRef<any>;
+  scrollYProgress: MotionValue<number>;
+  scrollPosition: number | undefined;
+  container: RefObject<any>;
 }
 
 const SceneContext = createContext<SceneContextProps>({} as SceneContextProps);

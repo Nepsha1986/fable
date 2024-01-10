@@ -5,6 +5,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import TextBlock from './TextBlock';
 import Item from './Item';
 
+import SceneContext from './context';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -49,41 +50,36 @@ const Scene = ({
   const Items = getComponents(Scene.Item) || null;
 
   return (
-    <section ref={sceneRef} style={{ background, minHeight: '100dvh' }}>
-      {!!scrollPosition && (
-        <motion.div
-          className={styles.scene}
-          style={{
-            perspectiveOrigin: `50% ${scrollPosition * 100}%`,
-            minHeight,
-            overflow,
-          }}
-        >
-          <div style={{ position: 'absolute', top: '-150px', left: '100px' }}>
-            {scrollPosition}
-          </div>
-
-          <div
-            style={{ position: 'absolute', bottom: '-150px', left: '100px' }}
+    <SceneContext.Provider
+      value={{ scrollYProgress, scrollPosition, container: sceneRef }}
+    >
+      <section ref={sceneRef} style={{ background, minHeight: '100dvh' }}>
+        {!!scrollPosition && (
+          <motion.div
+            className={styles.scene}
+            style={{
+              perspectiveOrigin: `50% ${scrollPosition * 100}%`,
+              minHeight,
+              overflow,
+            }}
           >
-            {scrollPosition}
-          </div>
-          {!!Items.length &&
-            Items.map((Child) => cloneElement(Child as React.ReactElement))}
+            {!!Items.length &&
+              Items.map((Child) => cloneElement(Child as React.ReactElement))}
 
-          {debug && (
-            <>
-              <div className={styles.scene__roof} />
-              <div className={styles.scene__floor} />
-              <div className={styles.scene__wallLeft} />
-              <div className={styles.scene__wallRight} />
-            </>
-          )}
+            {debug && (
+              <>
+                <div className={styles.scene__roof} />
+                <div className={styles.scene__floor} />
+                <div className={styles.scene__wallLeft} />
+                <div className={styles.scene__wallRight} />
+              </>
+            )}
 
-          {Text && <div className={styles.scene__content}>{Text}</div>}
-        </motion.div>
-      )}
-    </section>
+            {Text && <div className={styles.scene__content}>{Text}</div>}
+          </motion.div>
+        )}
+      </section>
+    </SceneContext.Provider>
   );
 };
 
