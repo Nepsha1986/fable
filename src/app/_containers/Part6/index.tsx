@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
-import SeaShellsTemp from "@/components/SeaShells/SeaShellsTemp";
+import SeaShellsTemp from '@/components/SeaShells/SeaShellsTemp';
 
 const Part6 = () => {
   const [bubbles, setBubbles] = useState<

@@ -31,11 +31,9 @@ const Part1 = () => {
       <Scene.TextBlock>
         <h1>The Life</h1>
         <p>
-          Life is a magnificent journey filled with awe-inspiring moments, and
-          it is our privilege to cherish and value each heartbeat that
-          contributes to this extraordinary tapestry. Enjoy every moment, for
-          life's true beauty lies in the appreciation of its simple yet profound
-          wonders.
+          {
+            "Life is a magnificent journey filled with awe-inspiring moments, and it is our privilege to cherish and value each heartbeat that contributes to this extraordinary tapestry. Enjoy every moment, for life's true beauty lies in the appreciation of its simple yet profound wonders."
+          }
         </p>
       </Scene.TextBlock>
     </Scene>
