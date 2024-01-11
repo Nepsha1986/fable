@@ -6,37 +6,18 @@ import Fish, { Fishes } from '@/components/Fish';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
 const Part3 = () => {
-  const [bubbles, setBubbles] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  const [fishPack, setFishPack] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
   const [bgFishes, setBgFishes] = useState<
     Array<{ x: string; y: string; depth: number }>
   >([]);
 
   useEffect(() => {
-    setBubbles(generateCoordinates(50));
     setBgFishes(
-      generateCoordinates(20, {
+      generateCoordinates(35, {
         depthMax: -300,
         depthMin: -500,
         xMax: 120,
         xMin: -20,
         yMax: 80,
-      }),
-    );
-    setFishPack(
-      generateCoordinates(50, {
-        yMin: 80,
-        yMax: 90,
-        depthMax: -10,
-        depthMin: -100,
-        xMax: 110,
-        xMin: 75,
       }),
     );
   }, []);
@@ -54,23 +35,6 @@ const Part3 = () => {
               size={`${size}px`}
               type={`${generateRandomNumber(2, 3)}` as keyof typeof Fishes}
             />
-          </Scene.Item>
-        );
-      })}
-
-      {fishPack.map((i, index) => {
-        const size = generateRandomNumber(15, 40);
-
-        return (
-          <Scene.Item
-            key={index}
-            bottom={i.y}
-            left={i.x}
-            depth={i.depth}
-            height={`${size}px}`}
-            width={`${size}px`}
-          >
-            <Fish />
           </Scene.Item>
         );
       })}
