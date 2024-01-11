@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Scene from '@/components/Scene';
-import Cloud, { Clouds } from './Cloud';
 import Sun from './Sun';
 import Bird from '@/components/Bird/Bird';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
