@@ -25,11 +25,11 @@ const Part4 = () => {
         <SeaBed4 />
       </Scene.Item>
 
-      <Scene.Item bottom="-25px" left="-15%" width="100%" depth={-180}>
+      <Scene.Item bottom="-25px" left="-15%" width="100%" depth={-100}>
         <SeaBed3 />
       </Scene.Item>
 
-      <Scene.Item bottom="-25px" right="-15%" width="100%" depth={-150}>
+      <Scene.Item bottom="-25px" right="-15%" width="100%" depth={-50}>
         <SeaBed2 />
       </Scene.Item>
 
@@ -42,6 +42,13 @@ const Part4 = () => {
       <Scene.Item bottom="-5px" left="0%" width="100%">
         <SeaBed1 />
       </Scene.Item>
+
+      <Scene.TextBlock>
+        <p>
+          Face challenges with resilience, understanding that they are stepping
+          stones toward personal growth and triumph.
+        </p>
+      </Scene.TextBlock>
     </Scene>
   );
 };

@@ -60,7 +60,7 @@ const Part2 = () => {
 
       <Scene.Item
         width="500px"
-        top="10%"
+        top="5%"
         right="-20%"
         depth={-300}
         scrollStyles={(scrollYProgress) => {
@@ -82,31 +82,6 @@ const Part2 = () => {
       <Scene.Item depth={-130} width={'125%'} left="-12,5%" bottom="0px">
         <CloudsGroup />
       </Scene.Item>
-
-      {clouds.map((i, index) => {
-        const size = `${generateRandomNumber(100, 200)}px`;
-        const cloudType = `${generateRandomNumber(
-          1,
-          7,
-        )}` as keyof typeof Clouds;
-
-        return (
-          <Scene.Item
-            width={size}
-            height={size}
-            bottom={i.y}
-            left={i.x}
-            depth={i.depth}
-            key={index}
-          >
-            <div
-              style={{ filter: 'drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7))' }}
-            >
-              <Cloud type={cloudType} />
-            </div>
-          </Scene.Item>
-        );
-      })}
 
       {birds.map((i, index) => {
         const size = `${generateRandomNumber(30, 50)}px`;
@@ -170,6 +145,13 @@ const Part2 = () => {
           endColor={'#377afb'}
         />
       </Scene.Item>
+
+      <Scene.TextBlock>
+        <p>
+          Embrace each dawn with gratitude, for it offers a canvas of endless
+          possibilities.
+        </p>
+      </Scene.TextBlock>
     </Scene>
   );
 };

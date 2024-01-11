@@ -29,13 +29,13 @@ const Part1 = () => {
         </Scene.Item>
       ))}
       <Scene.TextBlock>
-        <h1>The Fable</h1>
+        <h1>The Life</h1>
         <p>
-          As Lila delved deeper into the mysteries of Eldoria, she discovered a
-          prophecy foretelling her role in saving the realm from an impending
-          darkness, and with newfound allies, she braved treacherous terrains,
-          solving riddles and overcoming obstacles that guarded the path to the
-          Moonstone.
+          Life is a magnificent journey filled with awe-inspiring moments, and
+          it is our privilege to cherish and value each heartbeat that
+          contributes to this extraordinary tapestry. Enjoy every moment, for
+          life's true beauty lies in the appreciation of its simple yet profound
+          wonders.
         </p>
       </Scene.TextBlock>
     </Scene>

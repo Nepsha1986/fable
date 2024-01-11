@@ -74,6 +74,14 @@ const Part3 = () => {
           </Scene.Item>
         );
       })}
+
+      <Scene.TextBlock>
+        <p>
+          In the tapestry of life, weave kindness and compassion into every
+          interaction, creating a world that reflects the beauty within your
+          heart.
+        </p>
+      </Scene.TextBlock>
     </Scene>
   );
 };

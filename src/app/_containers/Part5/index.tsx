@@ -52,6 +52,16 @@ const Part5 = () => {
           <Bubble size={generateRandomNumber(3, 20)} />
         </Scene.Item>
       ))}
+
+      <Scene.TextBlock>
+        <p>
+          Cherish the bonds forged with loved ones, for they are the pillars of
+          support that elevate you in times of joy and adversity. As you
+          navigate this extraordinary journey, remember that each moment is a
+          precious gift – a chance to learn, love, and create a life that
+          resonates with the rhythm of your soul.
+        </p>
+      </Scene.TextBlock>
     </Scene>
   );
 };
