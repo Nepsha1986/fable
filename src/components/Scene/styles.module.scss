@@ -10,16 +10,6 @@ $flor_color: transparent;
   justify-content: center;
 
   &__content {
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    text-shadow: 1px 1px 1px #000;
-
-    h1 {
-      margin-bottom: 2rem;
-    }
   }
 
   &__floor {

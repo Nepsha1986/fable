@@ -43,7 +43,7 @@ const Part4 = () => {
         <SeaBed1 />
       </Scene.Item>
 
-      <Scene.TextBlock>
+      <Scene.TextBlock bordered position="bottom">
         <p>
           Face challenges with resilience, understanding that they are stepping
           stones toward personal growth and triumph.

@@ -145,7 +145,7 @@ const Part2 = () => {
         />
       </Scene.Item>
 
-      <Scene.TextBlock>
+      <Scene.TextBlock position="bottom" bordered>
         <p>
           Embrace each dawn with gratitude, for it offers a canvas of endless
           possibilities.

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { Dancing_Script } from 'next/font/google';
+import { Dancing_Script, Montserrat } from 'next/font/google';
 import './globals.css';
 
-const inter = Dancing_Script({ subsets: ['latin'] });
+const primaryFont = Montserrat({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'The life',
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={primaryFont.className}>{children}</body>
     </html>
   );
 }

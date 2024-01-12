@@ -75,7 +75,7 @@ const Scene = ({
               </>
             )}
 
-            {Text && <div className={styles.scene__content}>{Text}</div>}
+            {Text}
           </motion.div>
         )}
       </section>

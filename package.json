@@ -11,6 +11,7 @@
     "check": "npm run format && npm run lint"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "framer-motion": "^10.17.4",
     "next": "14.0.4",
     "react": "^18",
