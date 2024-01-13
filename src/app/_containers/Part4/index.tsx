@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
@@ -10,15 +8,9 @@ import SeaBed3 from '@/components/SeaBed/SeaBed3';
 import SeaBed2 from '@/components/SeaBed/SeaBed2';
 import SeaBed1 from '@/components/SeaBed/SeaBed1';
 
+const bubbles = generateCoordinates(50);
+
 const Part4 = () => {
-  const [bubbles, setBubbles] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  useEffect(() => {
-    setBubbles(generateCoordinates(50));
-  }, []);
-
   return (
     <Scene background="linear-gradient(to bottom, #2014b4, #2419c3, #1a109c, #110878, #070255)">
       <Scene.Item bottom="-5px" left="-17%" width="100%" depth={-350}>

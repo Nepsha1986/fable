@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Scene from '@/components/Scene';
 import Sun from './Sun';
 import Bird from '@/components/Bird/Bird';
@@ -17,37 +17,16 @@ import {
 } from '@/canvas/Island';
 import Wave from '@/components/Wave';
 
+const birds = generateCoordinates(21, {
+  yMin: 50,
+  yMax: 65,
+  xMin: 5,
+  xMax: 40,
+  depthMin: -200,
+  depthMax: -300,
+});
+
 const Part2 = () => {
-  const [clouds, setClouds] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-  const [birds, setBirds] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  useEffect(() => {
-    setClouds(
-      generateCoordinates(12, {
-        yMin: 80,
-        yMax: 90,
-        xMin: -20,
-        xMax: 120,
-        depthMin: -200,
-      }),
-    );
-
-    setBirds(
-      generateCoordinates(21, {
-        yMin: 50,
-        yMax: 65,
-        xMin: 5,
-        xMax: 40,
-        depthMin: -200,
-        depthMax: -300,
-      }),
-    );
-  }, []);
-
   return (
     <Scene
       background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)"
@@ -93,10 +72,6 @@ const Part2 = () => {
             left={i.x}
             depth={i.depth}
             key={index}
-            scrollStyles={(scrollYProgress) => {
-              const yPos = scrollYProgress.get();
-              return { x: -yPos * 200 };
-            }}
           >
             <Bird />
           </Scene.Item>

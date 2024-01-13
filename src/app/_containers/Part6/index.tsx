@@ -6,15 +6,8 @@ import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
+const bubbles = generateCoordinates(50);
 const Part6 = () => {
-  const [bubbles, setBubbles] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  useEffect(() => {
-    setBubbles(generateCoordinates(50));
-  }, []);
-
   return (
     <Scene background="linear-gradient(to bottom, #03011f, #03011c, #020019, #020016, #010012)">
       {bubbles.map((i, index) => (

@@ -2,22 +2,13 @@
 import Scene from '@/components/Scene';
 import Star from '@/components/Star';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
-import { useEffect, useState } from 'react';
+
+const stars = generateCoordinates(150, {
+  xMin: -10,
+  xMax: 110,
+});
 
 const Part1 = () => {
-  const [stars, setStars] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  useEffect(() => {
-    setStars(
-      generateCoordinates(150, {
-        xMin: -10,
-        xMax: 110,
-      }),
-    );
-  }, []);
-
   return (
     <Scene
       background="linear-gradient(to top, #000922, #000a1c, #000914, #00060a, #000101)"

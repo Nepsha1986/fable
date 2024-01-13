@@ -5,23 +5,15 @@ import Scene from '@/components/Scene';
 import Fish, { Fishes } from '@/components/Fish';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
+const bgFishes = generateCoordinates(35, {
+  depthMax: -300,
+  depthMin: -500,
+  xMax: 120,
+  xMin: -20,
+  yMax: 80,
+});
+
 const Part3 = () => {
-  const [bgFishes, setBgFishes] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  useEffect(() => {
-    setBgFishes(
-      generateCoordinates(35, {
-        depthMax: -300,
-        depthMin: -500,
-        xMax: 120,
-        xMin: -20,
-        yMax: 80,
-      }),
-    );
-  }, []);
-
   return (
     <Scene background="linear-gradient(to bottom, #377afb, #2a20dd, #271ccf, #2318c1, #2014b4)">
       {bgFishes.map((i, index) => {

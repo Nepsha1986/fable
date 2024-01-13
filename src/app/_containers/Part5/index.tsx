@@ -12,19 +12,11 @@ import { generateCoordinates, generateRandomNumber } from '@/utils';
 import CaveFishes from '@/components/Cave/CaveFishes';
 import CaveBg from '@/components/Cave/CaveBg';
 
+const bubbles = generateCoordinates(50, {
+  depthMin: -25,
+});
+
 const Part5 = () => {
-  const [bubbles, setBubbles] = useState<
-    Array<{ x: string; y: string; depth: number }>
-  >([]);
-
-  useEffect(() => {
-    setBubbles(
-      generateCoordinates(50, {
-        depthMin: -25,
-      }),
-    );
-  }, []);
-
   return (
     <Scene background="#040120" minHeight="120dvh">
       <Scene.Item width="100%" left="0%" depth={-160}>
