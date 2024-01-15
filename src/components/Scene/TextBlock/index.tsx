@@ -1,9 +1,8 @@
-import React, { forwardRef, RefObject, useEffect, useRef } from 'react';
-
+import React, { useEffect, useRef } from 'react';
+import { animate, inView } from 'framer-motion';
 import classNames from 'classnames';
 
 import styles from './styles.module.scss';
-import { animate, inView } from 'framer-motion';
 
 interface Props {
   children: React.ReactNode;
@@ -26,7 +25,7 @@ const TextBlock = ({
         animate(
           target,
           { opacity: [0, 1], y: ['40px', '0px'] },
-          { duration: 1, delay: 0.3 },
+          { duration: 1, delay: 0.5 },
         );
       });
     }
