@@ -4,9 +4,7 @@ $flor_color: transparent;
 .scene {
   overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
   padding: 3rem 1rem;
 
   &__items {

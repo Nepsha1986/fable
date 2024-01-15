@@ -36,17 +36,12 @@ const Scene = ({
 
   type SceneComponentType = typeof Scene.TextBlock | typeof Scene.Item;
 
-  const getComponent = (el: SceneComponentType): React.ReactNode =>
-    React.Children.toArray(children).find(
-      (child) => (child as React.ReactElement).type === el,
-    );
-
   const getComponents = (el: SceneComponentType): React.ReactNode[] =>
     React.Children.toArray(children).filter(
       (child) => (child as React.ReactElement).type === el,
     );
 
-  const Text = getComponent(Scene.TextBlock) || null;
+  const Texts = getComponents(Scene.TextBlock) || null;
   const Items = getComponents(Scene.Item) || null;
 
   return (
@@ -80,7 +75,8 @@ const Scene = ({
           </motion.div>
         )}
 
-        {Text}
+        {!!Texts.length &&
+          Texts.map((Child) => cloneElement(Child as React.ReactElement))}
       </section>
     </SceneContext.Provider>
   );

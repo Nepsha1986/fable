@@ -6,15 +6,14 @@
   position: relative;
   text-shadow: 1px 1px 1px #000;
   opacity: 0;
+  color: #fff;
 
   h1 {
     margin-bottom: 2rem;
-    color: #fff;
     font-size: 3rem;
   }
 
   p {
-    color: #fff;
     font-size: 1.2rem;
   }
 
@@ -30,7 +29,19 @@
     align-self: flex-start;
   }
 
+  &_leftAligned {
+    justify-self: self-start;
+  }
+
+  &_centerAligned {
+    justify-self: center;
+  }
+
+  &_rightAligned {
+    justify-self: self-end;
+  }
+
   &_bordered {
-    border: 2px solid #fff;
+    border: 2px solid #bdf3fc;
   }
 }
