@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Scene from '@/components/Scene';
 import Sun from './Sun';
 import Bird from '@/components/Bird/Bird';
@@ -16,6 +16,7 @@ import {
   PalmTrees,
 } from '@/canvas/Island';
 import Wave from '@/components/Wave';
+import { animate, inView } from "framer-motion";
 
 const birds = generateCoordinates(21, {
   yMin: 50,

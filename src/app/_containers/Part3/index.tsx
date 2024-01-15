@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Scene from '@/components/Scene';
 import Fish, { Fishes } from '@/components/Fish';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
