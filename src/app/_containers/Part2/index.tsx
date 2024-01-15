@@ -43,7 +43,7 @@ const Part2 = () => {
         depth={-300}
         scrollStyles={(scrollYProgress) => {
           const yPos = scrollYProgress.get();
-          return { opacity: 1 - yPos * 2, y: yPos * 1000 };
+          return { opacity: 1 - yPos * 2, y: -(yPos * 1000) };
         }}
       >
         <img src={moon.src} alt="moon" />
