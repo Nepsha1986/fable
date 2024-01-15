@@ -17,7 +17,7 @@ const Part6 = () => {
       ))}
 
       <Scene.TextBlock>
-        <p>Enjoy every moment.</p>
+        <h1>The end</h1>
       </Scene.TextBlock>
 
       <Scene.Footer>

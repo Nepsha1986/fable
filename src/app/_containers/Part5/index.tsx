@@ -43,14 +43,8 @@ const Part5 = () => {
         </Scene.Item>
       ))}
 
-      <Scene.TextBlock position="bottom">
-        <p>
-          Cherish the bonds forged with loved ones, for they are the pillars of
-          support that elevate you in times of joy and adversity. As you
-          navigate this extraordinary journey, remember that each moment is a
-          precious gift – a chance to learn, love, and create a life that
-          resonates with the rhythm of your soul.
-        </p>
+      <Scene.TextBlock position="center">
+        <h2>Enjoy every moment</h2>
       </Scene.TextBlock>
     </Scene>
   );

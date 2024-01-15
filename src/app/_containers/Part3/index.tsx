@@ -35,7 +35,8 @@ const Part3 = () => {
         <p>
           In the tapestry of life, weave kindness and compassion into every
           interaction, creating a world that reflects the beauty within your
-          heart.
+          heart. Face challenges with resilience, understanding that they are
+          stepping stones toward personal growth and triumph.
         </p>
       </Scene.TextBlock>
     </Scene>
