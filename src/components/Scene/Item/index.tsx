@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-
-import styles from './styles.module.scss';
+import React, { useContext, useEffect } from 'react';
 import {
-  HTMLMotionProps,
   motion,
   MotionStyle,
   MotionValue,
 } from 'framer-motion';
+
 import SceneContext from '@/components/Scene/context';
+
+import styles from './styles.module.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -33,8 +33,7 @@ const Item = ({
   right,
   depth,
   scrollStyles,
-  ...animation
-}: Props & HTMLMotionProps<'div'>) => {
+}: Props) => {
   const { container, scrollYProgress } = useContext(SceneContext);
 
   return (

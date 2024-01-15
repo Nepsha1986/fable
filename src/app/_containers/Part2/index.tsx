@@ -53,11 +53,11 @@ const Part2 = () => {
         <CloudsGroup3 />
       </Scene.Item>
 
-      <Scene.Item depth={-150} width={'125%'} left="-12,5%" bottom="0px">
+      <Scene.Item depth={-150} width={'125%'} left="-12.5%" bottom="0px">
         <CloudsGroup2 />
       </Scene.Item>
 
-      <Scene.Item depth={-130} width={'125%'} left="-12,5%" bottom="0px">
+      <Scene.Item depth={-130} width={'125%'} left="-12.5%" bottom="0px">
         <CloudsGroup />
       </Scene.Item>
 

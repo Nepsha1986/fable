@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
 import Cave1 from '@/components/Cave/Cave1';

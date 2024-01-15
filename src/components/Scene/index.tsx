@@ -53,13 +53,12 @@ const Scene = ({
     <SceneContext.Provider
       value={{ scrollYProgress, scrollPosition, container: sceneRef }}
     >
-      <section ref={sceneRef} style={{ background, minHeight: '100dvh' }}>
+      <section className={styles.scene} ref={sceneRef} style={{background, minHeight}}>
         {!!scrollPosition && (
           <motion.div
-            className={styles.scene}
+            className={styles.scene__items}
             style={{
               perspectiveOrigin: `50% ${scrollPosition * 100}%`,
-              minHeight,
               overflow,
             }}
           >
@@ -68,16 +67,16 @@ const Scene = ({
 
             {debug && (
               <>
-                <div className={styles.scene__roof} />
-                <div className={styles.scene__floor} />
-                <div className={styles.scene__wallLeft} />
-                <div className={styles.scene__wallRight} />
+                <div className={styles.scene__roof}/>
+                <div className={styles.scene__floor}/>
+                <div className={styles.scene__wallLeft}/>
+                <div className={styles.scene__wallRight}/>
               </>
             )}
-
-            {Text}
           </motion.div>
         )}
+
+        {Text}
       </section>
     </SceneContext.Provider>
   );
