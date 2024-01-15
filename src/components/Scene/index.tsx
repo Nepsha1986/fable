@@ -53,7 +53,11 @@ const Scene = ({
     <SceneContext.Provider
       value={{ scrollYProgress, scrollPosition, container: sceneRef }}
     >
-      <section className={styles.scene} ref={sceneRef} style={{background, minHeight}}>
+      <section
+        className={styles.scene}
+        ref={sceneRef}
+        style={{ background, minHeight }}
+      >
         {!!scrollPosition && (
           <motion.div
             className={styles.scene__items}
@@ -67,10 +71,10 @@ const Scene = ({
 
             {debug && (
               <>
-                <div className={styles.scene__roof}/>
-                <div className={styles.scene__floor}/>
-                <div className={styles.scene__wallLeft}/>
-                <div className={styles.scene__wallRight}/>
+                <div className={styles.scene__roof} />
+                <div className={styles.scene__floor} />
+                <div className={styles.scene__wallLeft} />
+                <div className={styles.scene__wallRight} />
               </>
             )}
           </motion.div>

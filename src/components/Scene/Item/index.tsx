@@ -1,9 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import {
-  motion,
-  MotionStyle,
-  MotionValue,
-} from 'framer-motion';
+import { motion, MotionStyle, MotionValue } from 'framer-motion';
 
 import SceneContext from '@/components/Scene/context';
 
