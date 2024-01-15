@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
+import SiteFooter from '@/components/SiteFooter';
+
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
 const bubbles = generateCoordinates(50);
@@ -19,6 +19,10 @@ const Part6 = () => {
       <Scene.TextBlock>
         <p>Enjoy every moment.</p>
       </Scene.TextBlock>
+
+      <Scene.Footer>
+        <SiteFooter />
+      </Scene.Footer>
     </Scene>
   );
 };

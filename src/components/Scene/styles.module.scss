@@ -4,8 +4,14 @@ $flor_color: transparent;
 .scene {
   overflow: hidden;
   position: relative;
-  display: grid;
-  padding: 3rem 1rem;
+  display: flex;
+  flex-flow: column;
+
+  &__content {
+    flex-grow: 1;
+    display: grid;
+    padding: 3rem 1rem;
+  }
 
   &__items {
     perspective: 600px;

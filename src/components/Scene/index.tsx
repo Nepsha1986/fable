@@ -4,6 +4,8 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 import TextBlock from './TextBlock';
 import Item from './Item';
+import Footer from './Footer';
+import Header from './Header';
 
 import SceneContext from './context';
 import styles from './styles.module.scss';
@@ -34,15 +36,25 @@ const Scene = ({
     setScrollPosition(latest);
   });
 
-  type SceneComponentType = typeof Scene.TextBlock | typeof Scene.Item;
+  type SceneComponentType =
+    | typeof Scene.TextBlock
+    | typeof Scene.Item
+    | typeof Scene.Footer;
 
   const getComponents = (el: SceneComponentType): React.ReactNode[] =>
     React.Children.toArray(children).filter(
       (child) => (child as React.ReactElement).type === el,
     );
 
+  const getComponent = (el: SceneComponentType): React.ReactNode =>
+    React.Children.toArray(children).find(
+      (child) => (child as React.ReactElement).type === el,
+    );
+
   const Texts = getComponents(Scene.TextBlock) || null;
   const Items = getComponents(Scene.Item) || null;
+  const Footer = getComponent(Scene.Footer) || null;
+  const Header = getComponent(Scene.Header) || null;
 
   return (
     <SceneContext.Provider
@@ -75,8 +87,14 @@ const Scene = ({
           </motion.div>
         )}
 
-        {!!Texts.length &&
-          Texts.map((Child) => cloneElement(Child as React.ReactElement))}
+        {Header && <header className={styles.scene__header}>{Header}</header>}
+
+        <div className={styles.scene__content}>
+          {!!Texts.length &&
+            Texts.map((Child) => cloneElement(Child as React.ReactElement))}
+        </div>
+
+        {Footer && <footer className={styles.scene__footer}>{Footer}</footer>}
       </section>
     </SceneContext.Provider>
   );
@@ -84,5 +102,7 @@ const Scene = ({
 
 Scene.TextBlock = TextBlock;
 Scene.Item = Item;
+Scene.Footer = Footer;
+Scene.Header = Header;
 
 export default Scene;

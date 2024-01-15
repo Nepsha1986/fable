@@ -16,7 +16,6 @@ import {
   PalmTrees,
 } from '@/canvas/Island';
 import Wave from '@/components/Wave';
-import { animate, inView } from "framer-motion";
 
 const birds = generateCoordinates(21, {
   yMin: 50,
@@ -31,7 +30,7 @@ const Part2 = () => {
   return (
     <Scene
       background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)"
-      minHeight="180dvh"
+      minHeight="160dvh"
     >
       <Scene.Item width="1200px" bottom="-100px" left="-30%" depth={-600}>
         <Sun />
@@ -121,10 +120,12 @@ const Part2 = () => {
         />
       </Scene.Item>
 
-      <Scene.TextBlock position="bottom" bordered>
-        <p>
+      <Scene.TextBlock position="bottom">
+        <p style={{ marginBottom: '5rem' }}>
           Embrace each dawn with gratitude, for it offers a canvas of endless
-          possibilities.
+          possibilities, where the gentle strokes of hope paint a masterpiece
+          that unfolds with the promise of new beginnings and the potential for
+          remarkable adventures yet to be discovered.
         </p>
       </Scene.TextBlock>
     </Scene>

@@ -43,7 +43,7 @@ const Part5 = () => {
         </Scene.Item>
       ))}
 
-      <Scene.TextBlock bordered position="bottom">
+      <Scene.TextBlock position="bottom">
         <p>
           Cherish the bonds forged with loved ones, for they are the pillars of
           support that elevate you in times of joy and adversity. As you

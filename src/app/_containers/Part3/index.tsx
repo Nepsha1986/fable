@@ -31,7 +31,7 @@ const Part3 = () => {
         );
       })}
 
-      <Scene.TextBlock bordered position="bottom">
+      <Scene.TextBlock position="bottom">
         <p>
           In the tapestry of life, weave kindness and compassion into every
           interaction, creating a world that reflects the beauty within your
