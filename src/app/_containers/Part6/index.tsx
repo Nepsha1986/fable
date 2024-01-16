@@ -17,7 +17,7 @@ const Part6 = () => {
       ))}
 
       <Scene.TextBlock>
-        <h1>The end</h1>
+        <h1>The End</h1>
       </Scene.TextBlock>
 
       <Scene.Footer>

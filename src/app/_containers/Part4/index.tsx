@@ -61,7 +61,7 @@ const Part4 = () => {
         </Scene.Item>
       ))}
 
-      <Scene.Item bottom="-5px" left="0%" width="100%">
+      <Scene.Item bottom="-7px" left="0%" width="100%">
         <SeaBed1 />
       </Scene.Item>
 

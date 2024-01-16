@@ -13,19 +13,19 @@ const sceneBg =
 const Part3 = () => {
   return (
     <Scene background={sceneBg} overflow="visible">
-      <Scene.Item depth={-220} width="110%" left={'-5%'} bottom="0px">
+      <Scene.Item depth={-280} width="110%" left={'-5%'} bottom="0px">
         <FishGroup2 />
       </Scene.Item>
 
-      <Scene.Item depth={-140} width="110%" left={'-5%'} bottom="0px">
+      <Scene.Item depth={-180} width="110%" left={'-5%'} bottom="0px">
         <FishGroup1 />
       </Scene.Item>
 
-      <Scene.Item depth={-120} width="110%" left={'-5%'} bottom="0px">
+      <Scene.Item depth={-150} width="110%" left={'-5%'} bottom="0px">
         <DolphinSmall />
       </Scene.Item>
 
-      <Scene.Item depth={-50} width="100%" left={'0%'} bottom="0px">
+      <Scene.Item depth={-80} width="100%" left={'0%'} bottom="0px">
         <DolphinLarge />
       </Scene.Item>
 
