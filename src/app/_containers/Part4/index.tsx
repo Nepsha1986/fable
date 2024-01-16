@@ -66,6 +66,7 @@ const Part4 = () => {
       </Scene.Item>
 
       <Scene.TextBlock position="bottom">
+        <h2>Life is Learn, Love, Create</h2>
         <p>
           Cherish the bonds forged with loved ones, for they are the pillars of
           support that elevate you in times of joy and adversity. As you

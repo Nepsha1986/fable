@@ -121,6 +121,7 @@ const Part2 = () => {
       </Scene.Item>
 
       <Scene.TextBlock position="bottom">
+        <h2>Life is a Canvas of Endless Possibilities</h2>
         <p style={{ marginBottom: '5rem' }}>
           Embrace each dawn with gratitude, for it offers a canvas of endless
           possibilities, where the gentle strokes of hope paint a masterpiece

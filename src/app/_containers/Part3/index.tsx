@@ -30,6 +30,7 @@ const Part3 = () => {
       </Scene.Item>
 
       <Scene.TextBlock position="bottom">
+        <h2>Life is Kindness</h2>
         <p>
           In the tapestry of life, weave kindness and compassion into every
           interaction, creating a world that reflects the beauty within your
