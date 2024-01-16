@@ -1,5 +1,5 @@
 const DolphinSmall = () => {
-  const gradient: [string, string] = ['#387bfb', '#031f81'];
+  const gradient: [string, string] = ['#387bfb', '#011762'];
 
   return (
     <svg viewBox="0 0 885 595.3">

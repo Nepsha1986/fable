@@ -111,7 +111,7 @@ const Part2 = () => {
         <Wave id="second_wave" type="2" />
       </Scene.Item>
 
-      <Scene.Item width="100%" bottom="-5px" depth={0}>
+      <Scene.Item width="100%" bottom="-7px" depth={0}>
         <Wave
           id="third_wave"
           type="2"
