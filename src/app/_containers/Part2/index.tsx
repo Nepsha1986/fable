@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Scene from '@/components/Scene';
 import Sun from './Sun';
-import Bird from '@/components/Bird/Bird';
+import Bird, { Birds } from '@/components/Bird';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 import moon from './moon.png';
 import {
@@ -20,17 +20,18 @@ import Wave from '@/components/Wave';
 const birds = generateCoordinates(21, {
   yMin: 50,
   yMax: 65,
-  xMin: 5,
+  xMin: -5,
   xMax: 40,
   depthMin: -200,
   depthMax: -300,
 });
 
+const sceneBg = "linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)";
 const Part2 = () => {
   return (
     <Scene
-      background="linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)"
-      minHeight="160dvh"
+      background={sceneBg}
+      minHeight="100vw"
     >
       <Scene.Item width="1200px" bottom="-100px" left="-30%" depth={-600}>
         <Sun />
@@ -62,7 +63,8 @@ const Part2 = () => {
       </Scene.Item>
 
       {birds.map((i, index) => {
-        const size = `${generateRandomNumber(30, 50)}px`;
+        const size = `${generateRandomNumber(40, 60)}px`;
+        const type = `${generateRandomNumber(1, 4)}` as keyof typeof Birds;
 
         return (
           <Scene.Item
@@ -73,7 +75,7 @@ const Part2 = () => {
             depth={i.depth}
             key={index}
           >
-            <Bird />
+            <Bird type={type} />
           </Scene.Item>
         );
       })}
