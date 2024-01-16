@@ -1,22 +1,25 @@
 const DolphinLarge = () => {
+  const gradient: [string, string] = ['#387bfb', '#031f81'];
+
   return (
     <svg viewBox="0 0 885 595.3">
-      <g>
+      <defs>
         <linearGradient
-          id="XMLID_113_"
+          id="dolphin_large_gradient"
           gradientUnits="userSpaceOnUse"
           x1="282.8367"
           y1="184.5585"
           x2="472.7163"
           y2="376.502"
         >
-          <stop offset="0" stopColor="#387bfb" />
-          <stop offset="1" stopColor={'#031f81'} />
+          <stop offset="0" stopColor={gradient[0]} />
+          <stop offset="1" stopColor={gradient[1]} />
         </linearGradient>
+      </defs>
 
+      <g>
         <path
-          id="XMLID_104_"
-          fill="url(#XMLID_113_)"
+          fill="url(#dolphin_large_gradient)"
           d="M551.7,375.9c-3.2-6.2-2.3-15.2-8.5-18.4c2.1-6.1,2.6-12.7,1.4-19c-0.9-5-2.9-9.8-3.4-14.8
 				c-0.9-8.1,1.8-16.1,4.5-23.7c-8.6,1.7-15.8,7.9-21.1,14.8c-6.4,8.4-10.7,17.8-12.8,28.1c-9-4.4-18-8.9-27.8-11.3
 				c-8.3-2.1-16.9-2.6-25.3-4c-15.9-2.6-31.2-8.3-45.3-16.2c5.3-15.1,18.7-27.4,34.4-30.8c-13.7-7.9-30.5-7.3-46.2-5.1

@@ -1,22 +1,25 @@
 const DolphinSmall = () => {
+  const gradient: [string, string] = ['#387bfb', '#031f81'];
+
   return (
     <svg viewBox="0 0 885 595.3">
-      <g>
+      <defs>
         <linearGradient
-          id="XMLID_114_"
+          id="dolphin_small_gradient"
           gradientUnits="userSpaceOnUse"
           x1="402.3705"
           y1="168.0692"
           x2="486.9908"
           y2="283.648"
         >
-          <stop offset="0" stopColor="#387bfb" />
-          <stop offset="1" stopColor={'#031f81'} />
+          <stop offset="0" stopColor={gradient[0]} />
+          <stop offset="1" stopColor={gradient[1]} />
         </linearGradient>
+      </defs>
 
+      <g>
         <path
-          id="XMLID_37_"
-          fill="url(#XMLID_114_)"
+          fill="url(#dolphin_small_gradient)"
           d="M481.9,252.3c-4.9-2.8-8.5-7.3-12-11.6c-4-4.9-7.9-9.8-11-15.4c-3.1-5.6-5.6-11.6-8.1-17.5
 						c-1.8-4.1-3.9-8-6.4-11.7c-0.8-1.2-6.7-10.6-7.9-10.2c8.1-2.5,16.9-0.4,25.1,1.8c-4.5-4.3-10.4-7-16.5-8.4s-11.8-1.4-18-1.5
 						c-4.7-3.7-9.5-7.1-14.4-10.4c-9.6-6.3-20.5-12-31.9-11.2c-4.1,0.3-8,2.8-12.1,3.3c-2,0.2-4,0-5.9-0.5c-1.1-0.3-2.2-0.8-3.4-1
