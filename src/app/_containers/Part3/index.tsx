@@ -2,34 +2,32 @@
 
 import React from 'react';
 import Scene from '@/components/Scene';
-import Fish, { Fishes } from '@/components/Fish';
-import { generateCoordinates, generateRandomNumber } from '@/utils';
+import DolphinLarge from '@/components/SeaSurface/DolphinLarge';
+import DolphinSmall from '@/components/SeaSurface/DolphinSmall';
+import FishGroup1 from '@/components/SeaSurface/FishGroup1';
+import FishGroup2 from '@/components/SeaSurface/FishGroup2';
 
-const bgFishes = generateCoordinates(35, {
-  depthMax: -300,
-  depthMin: -500,
-  xMax: 120,
-  xMin: -20,
-  yMax: 80,
-});
+const sceneBg =
+  'linear-gradient(to bottom, #377afb, #2a20dd, #271ccf, #2318c1, #2014b4)';
 
 const Part3 = () => {
   return (
-    <Scene background="linear-gradient(to bottom, #377afb, #2a20dd, #271ccf, #2318c1, #2014b4)">
-      {bgFishes.map((i, index) => {
-        const size = generateRandomNumber(50, 200);
+    <Scene background={sceneBg} overflow="visible">
+      <Scene.Item depth={-220} width="110%" left={'-5%'} bottom="0px">
+        <FishGroup2 />
+      </Scene.Item>
 
-        return (
-          <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>
-            <Fish
-              flip={!!generateRandomNumber(0, 1)}
-              color={`#01155b`}
-              size={`${size}px`}
-              type={`${generateRandomNumber(2, 3)}` as keyof typeof Fishes}
-            />
-          </Scene.Item>
-        );
-      })}
+      <Scene.Item depth={-140} width="110%" left={'-5%'} bottom="0px">
+        <FishGroup1 />
+      </Scene.Item>
+
+      <Scene.Item depth={-120} width="110%" left={'-5%'} bottom="0px">
+        <DolphinSmall />
+      </Scene.Item>
+
+      <Scene.Item depth={-50} width="100%" left={'0%'} bottom="0px">
+        <DolphinLarge />
+      </Scene.Item>
 
       <Scene.TextBlock position="bottom">
         <p>

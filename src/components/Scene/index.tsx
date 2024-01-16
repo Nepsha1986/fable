@@ -21,7 +21,7 @@ const Scene = ({
   children,
   background,
   debug,
-  minHeight = '100dvh',
+  minHeight = '60vw',
   overflow = 'hidden',
 }: Props) => {
   const sceneRef = useRef<ElementRef<'div'>>(null);
@@ -39,6 +39,7 @@ const Scene = ({
   type SceneComponentType =
     | typeof Scene.TextBlock
     | typeof Scene.Item
+    | typeof Scene.Header
     | typeof Scene.Footer;
 
   const getComponents = (el: SceneComponentType): React.ReactNode[] =>
@@ -63,14 +64,13 @@ const Scene = ({
       <section
         className={styles.scene}
         ref={sceneRef}
-        style={{ background, minHeight }}
+        style={{ background, minHeight, overflow }}
       >
         {!!scrollPosition && (
           <motion.div
             className={styles.scene__items}
             style={{
               perspectiveOrigin: `50% ${scrollPosition * 100}%`,
-              overflow,
             }}
           >
             {!!Items.length &&

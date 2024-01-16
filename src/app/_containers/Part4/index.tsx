@@ -1,18 +1,48 @@
 'use client';
 
+import React from 'react';
+
+import { generateCoordinates, generateRandomNumber } from '@/utils';
+
 import Scene from '@/components/Scene';
 import Bubble from '@/components/Bubble';
-import { generateCoordinates, generateRandomNumber } from '@/utils';
+import Fish, { Fishes } from '@/components/Fish';
+
 import SeaBed4 from '@/components/SeaBed/SeaBed4';
 import SeaBed3 from '@/components/SeaBed/SeaBed3';
 import SeaBed2 from '@/components/SeaBed/SeaBed2';
 import SeaBed1 from '@/components/SeaBed/SeaBed1';
 
 const bubbles = generateCoordinates(50);
+const bgFishes = generateCoordinates(15, {
+  depthMax: -300,
+  depthMin: -500,
+  xMax: 120,
+  xMin: -20,
+  yMin: 80,
+});
 
 const Part4 = () => {
   return (
-    <Scene background="linear-gradient(to bottom, #2014b4, #2419c3, #1a109c, #110878, #070255)">
+    <Scene
+      background="linear-gradient(to bottom, #2014b4, #2419c3, #1a109c, #110878, #070255)"
+      overflow="visible"
+    >
+      {bgFishes.map((i, index) => {
+        const size = generateRandomNumber(50, 200);
+
+        return (
+          <Scene.Item key={index} bottom={i.y} left={i.x} depth={i.depth}>
+            <Fish
+              flip={!!generateRandomNumber(0, 1)}
+              color={'#01155b'}
+              size={`${size}px`}
+              type={`${generateRandomNumber(2, 3)}` as keyof typeof Fishes}
+            />
+          </Scene.Item>
+        );
+      })}
+
       <Scene.Item bottom="-5px" left="-17%" width="100%" depth={-350}>
         <SeaBed4 />
       </Scene.Item>
