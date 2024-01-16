@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Dancing_Script, Montserrat } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
+
 import './globals.css';
 
 const primaryFont = Montserrat({ subsets: ['latin'] });
