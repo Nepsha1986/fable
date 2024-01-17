@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Scene from '@/components/Scene';
 import Star from '@/components/Star';
 import Scroll from '@/components/Scroll';
+import SiteHeader from '@/components/SiteHeader';
+
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
 const stars = generateCoordinates(200, {
@@ -17,6 +19,10 @@ const Part1 = () => {
       background="linear-gradient(to top, #000922, #000a1c, #000914, #00060a, #000101)"
       overflow="visible"
     >
+      <Scene.Header>
+        <SiteHeader />
+      </Scene.Header>
+
       {stars.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
           <motion.div
