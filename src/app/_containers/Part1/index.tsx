@@ -6,7 +6,7 @@ import Star from '@/components/Star';
 import Scroll from '@/components/Scroll';
 import { generateCoordinates, generateRandomNumber } from '@/utils';
 
-const stars = generateCoordinates(150, {
+const stars = generateCoordinates(200, {
   xMin: -10,
   xMax: 110,
 });
@@ -19,7 +19,16 @@ const Part1 = () => {
     >
       {stars.map((i, index) => (
         <Scene.Item key={index} top={i.y} left={i.x} depth={i.depth}>
-          <Star size={generateRandomNumber(3, 8)} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: generateRandomNumber(0, 500) * 0.01,
+            }}
+          >
+            <Star size={generateRandomNumber(3, 8)} />
+          </motion.div>
         </Scene.Item>
       ))}
       <Scene.TextBlock>

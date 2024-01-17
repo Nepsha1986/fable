@@ -26,13 +26,11 @@ const birds = generateCoordinates(21, {
   depthMax: -300,
 });
 
-const sceneBg = "linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)";
+const sceneBg =
+  'linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)';
 const Part2 = () => {
   return (
-    <Scene
-      background={sceneBg}
-      minHeight="100vw"
-    >
+    <Scene background={sceneBg} minHeight="100vw">
       <Scene.Item width="1200px" bottom="-100px" left="-30%" depth={-600}>
         <Sun />
       </Scene.Item>

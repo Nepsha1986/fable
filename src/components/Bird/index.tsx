@@ -14,7 +14,7 @@ interface Props {
   type?: keyof typeof Birds;
 }
 
-const Bird = ({ type = '1'}: Props) => {
+const Bird = ({ type = '1' }: Props) => {
   const Component = Birds[type];
   return <Component />;
 };
