@@ -11,8 +11,7 @@ const Dialog: React.FC<{
   onClickClose?: () => void;
   size?: 'small' | 'medium' | 'large';
   heading?: string;
-  footer?: React.ReactNode | React.ReactNode[];
-}> = ({ open, children, onClickClose, heading, footer, size = 'small' }) => {
+}> = ({ open, children, onClickClose, heading, size = 'small' }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const onAnimationEnd = () => {
@@ -38,15 +37,13 @@ const Dialog: React.FC<{
     >
       <header className={styles.dialog__header}>
         {!!heading && <h3 style={{ marginBottom: 0 }}>{heading}</h3>}
-
-        <div className={styles.dialog__closeBtn}>
-          {onClickClose && <Button onClick={onClickClose}>Close</Button>}
-        </div>
       </header>
 
       <div className={styles.dialog__main}>{children}</div>
 
-      {footer && <footer className={styles.dialog__footer}>{footer}</footer>}
+      <footer className={styles.dialog__footer}>
+        <Button onClick={onClickClose}>Close</Button>
+      </footer>
     </dialog>
   );
 };

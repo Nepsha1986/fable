@@ -2,6 +2,8 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --c-primary-light: #33daff;
+  --c-primary-dark: #108a9a;
 }
 
 * {
@@ -22,11 +24,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   margin-bottom: 1em;
 }
 
 a {
-  color: inherit;
+  font-weight: bold;
+  color: var(--c-primary-dark);
   text-decoration: none;
 }
