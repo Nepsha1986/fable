@@ -21,7 +21,7 @@ const Scene = ({
   children,
   background,
   debug,
-  minHeight = '60vw',
+  minHeight = '100dvh',
   overflow = 'hidden',
 }: Props) => {
   const sceneRef = useRef<ElementRef<'div'>>(null);
