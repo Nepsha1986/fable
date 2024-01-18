@@ -26,8 +26,8 @@ const AboutInfo = () => {
         }}
       >
         <p>
-          Hello, my name is Alex. I'm a Frontend Developer from Ukraine. Feel
-          free to check out my{' '}
+          Hello, my name is Alex. I&apos;m a Frontend Developer from Ukraine.
+          Feel free to check out my{' '}
           <a href={personalPageURL} target="_blank" rel="author">
             personal page
           </a>{' '}
@@ -35,14 +35,9 @@ const AboutInfo = () => {
         </p>
 
         <p>
-          This project demonstrates an approach to implementing the parallax
-          effect by manipulating the "perspective-origin" CSS property within
-          the parent container, instead of altering the Y coordinate in the 2D
-          dimension layer. The essence of this technique lies in dynamically
-          changing the perspective origin while scrolling, resulting in a
-          captivating visual experience. This approach achieves a seamless blend
-          of foreground and background elements, offering users a striking sense
-          of depth and immersion.
+          {
+            'This project demonstrates an approach to implementing the parallax effect by manipulating the "perspective-origin" CSS property within the parent container, instead of altering the Y coordinate in the 2D dimension layer. The essence of this technique lies in dynamically changing the perspective origin while scrolling, resulting in a captivating visual experience. This approach achieves a seamless blend of foreground and background elements, offering users a striking sense of depth and immersion.'
+          }
         </p>
 
         <p>
