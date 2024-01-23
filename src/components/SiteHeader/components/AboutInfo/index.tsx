@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Dialog from '@/components/Dialog';
 
-const personalPageURL = 'https://gift-idea.co/en-us/about-me';
+const personalPageURL = 'https://alex.gift-idea.co';
 const projectSrcURL = 'https://github.com/Nepsha1986/fable';
 const AboutInfo = () => {
   const [isActive, setIsActive] = useState(false);
