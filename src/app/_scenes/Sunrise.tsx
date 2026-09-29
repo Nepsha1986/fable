@@ -35,6 +35,9 @@ const birds = scatter(random, 21, {
   src: random.pick(birdTypes),
 }));
 
+// The illustrations share one 361×482 canvas, cropped to their content to
+// keep the composited layers small. Vertical offsets are in `cqw` (% of the
+// stage width) because the artwork scales with the stage width.
 const background =
   'linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)';
 
@@ -64,15 +67,15 @@ const Sunrise = () => (
           <Image src={moon} alt="" sizes="500px" priority />
         </SceneItem>
 
-        <SceneItem depth={-175} width="130%" left="-15%" bottom="0px">
+        <SceneItem depth={-175} width="130%" left="-15%" bottom="45.48cqw">
           <Art src={clouds3} priority />
         </SceneItem>
 
-        <SceneItem depth={-150} width="125%" left="-12.5%" bottom="0px">
+        <SceneItem depth={-150} width="125%" left="-12.5%" bottom="54.2cqw">
           <Art src={clouds2} priority />
         </SceneItem>
 
-        <SceneItem depth={-130} width="125%" left="-12.5%" bottom="0px">
+        <SceneItem depth={-130} width="125%" left="-12.5%" bottom="65.7cqw">
           <Art src={clouds1} priority />
         </SceneItem>
 
@@ -89,19 +92,29 @@ const Sunrise = () => (
           </SceneItem>
         ))}
 
-        <SceneItem depth={-120} width="120%" left="-200px" bottom="-270px">
+        <SceneItem
+          depth={-120}
+          width="85.71%"
+          left="calc(6.27% - 200px)"
+          bottom="calc(37.3cqw - 270px)"
+        >
           <Art src={palmTrees} priority />
         </SceneItem>
 
-        <SceneItem width="120%" left="-10%" bottom="-225px" depth={-80}>
+        <SceneItem
+          width="120%"
+          left="-10%"
+          bottom="calc(36.42cqw - 225px)"
+          depth={-80}
+        >
           <Art src={shore} priority />
         </SceneItem>
 
         <SceneItem
-          width="100%"
+          width="35.38%"
           depth={-40}
-          left="0%"
-          bottom="-225px"
+          left="54.32%"
+          bottom="calc(72.75cqw - 225px)"
           motion={{ x: [0, 200], y: [0, -100] }}
         >
           <Art src={birdsGroup} />

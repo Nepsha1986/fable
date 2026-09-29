@@ -29,6 +29,8 @@ $box_depth: 300px;
     --stage-width: max(100%, var(--stage-min-width, 0px));
 
     perspective: 600px;
+    // Lets layers use `cqw` units (% of the stage width).
+    container-type: inline-size;
     position: absolute;
     top: 0;
     left: calc(50% - var(--stage-width) / 2);

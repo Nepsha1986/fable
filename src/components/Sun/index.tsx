@@ -1,39 +1,9 @@
-const Sun = () => {
-  return (
-    <svg x="0px" y="0px" viewBox="0 0 50 50">
-      <circle
-        id="sunBeam"
-        r="20"
-        cy="25"
-        cx="25"
-        fill={'#ffeea5'}
-        stroke={'#fffacd'}
-        strokeWidth="3"
-        strokeLinecap="round"
-      >
-        <animate
-          attributeName="opacity"
-          from="1"
-          to="0"
-          dur="3s"
-          repeatCount="indefinite"
-        />
+import styles from './styles.module.scss';
 
-        <animate
-          attributeName="r"
-          attributeType="XML"
-          from="12"
-          to="20"
-          begin="0s"
-          dur="3s"
-          fill="remove"
-          repeatCount="indefinite"
-        />
-      </circle>
-
-      <circle id="sun" r="13" cy="25" cx="25" fill={'#fff3c5'} />
-    </svg>
-  );
-};
+/**
+ * The rising sun: a single static radial gradient. Cheap to composite, unlike
+ * an animated SVG, which forces the large layer to repaint every frame.
+ */
+const Sun = () => <div className={styles.sun} />;
 
 export default Sun;

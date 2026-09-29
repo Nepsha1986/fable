@@ -1,0 +1,15 @@
+.sun {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  // Tinted with the horizon colors of the Sunrise scene, so the glow reads as
+  // the source of its light.
+  background: radial-gradient(
+    circle closest-side,
+    #fff 0%,
+    #fbffe0 42%,
+    #f3fcb8 50%,
+    rgba(246, 255, 157, 0.6) 53%,
+    rgba(200, 240, 170, 0.25) 72%,
+    rgba(116, 198, 147, 0) 100%
+  );
+}
