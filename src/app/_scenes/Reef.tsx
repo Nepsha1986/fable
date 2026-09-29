@@ -1,5 +1,6 @@
 import Scene, { SceneItem, SceneText } from '@/components/Scene';
 import Bubble from '@/components/Bubble';
+import DepthBands from '@/components/DepthBands';
 import Fish from '@/components/Fish';
 import Art from '@/components/Art';
 import { createRandom, scatter } from '@/utils/random';
@@ -40,21 +41,18 @@ const Reef = () => (
     overflow="visible"
     layers={
       <>
-        {fishes.map((fish, index) => (
-          <SceneItem
-            key={index}
-            bottom={fish.y}
-            left={fish.x}
-            depth={fish.depth}
-          >
+        <DepthBands
+          items={fishes}
+          anchor="bottom"
+          render={(fish) => (
             <Fish
               type={fish.type}
               flip={fish.flip}
               size={fish.size}
               color="#01155b"
             />
-          </SceneItem>
-        ))}
+          )}
+        />
 
         <SceneItem bottom="-5px" left="-17%" width="100%" depth={-350}>
           <Art src={seabed4} />
@@ -68,16 +66,10 @@ const Reef = () => (
           <Art src={seabed2} />
         </SceneItem>
 
-        {bubbles.map((bubble, index) => (
-          <SceneItem
-            key={index}
-            top={bubble.y}
-            left={bubble.x}
-            depth={bubble.depth}
-          >
-            <Bubble size={bubble.size} />
-          </SceneItem>
-        ))}
+        <DepthBands
+          items={bubbles}
+          render={(bubble) => <Bubble size={bubble.size} />}
+        />
 
         <SceneItem bottom="-7px" left="0%" width="100%">
           <Art src={seabed1} />

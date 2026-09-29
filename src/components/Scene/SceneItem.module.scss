@@ -1,10 +1,14 @@
 .item {
   position: absolute;
+}
 
-  svg,
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+// Artwork fills the layer width. Direct children only (plus the wrapper of
+// scroll-linked motion), so small icons inside a layer keep their size.
+// `:where` keeps specificity low, so components can override it.
+:where(.item) > svg,
+:where(.item) > img,
+:where(.item) > div > img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

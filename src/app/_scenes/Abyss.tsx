@@ -1,5 +1,6 @@
-import Scene, { SceneItem, SceneText } from '@/components/Scene';
+import Scene, { SceneText } from '@/components/Scene';
 import Bubble from '@/components/Bubble';
+import DepthBands from '@/components/DepthBands';
 import SiteFooter from '@/components/SiteFooter';
 import { createRandom, scatter } from '@/utils/random';
 
@@ -18,17 +19,15 @@ const Abyss = () => (
     id="abyss"
     label="The end"
     background={background}
+    // Only bubbles here: no artwork to keep uncropped on phones.
+    stageMinWidth="0px"
     footer={<SiteFooter />}
-    layers={bubbles.map((bubble, index) => (
-      <SceneItem
-        key={index}
-        top={bubble.y}
-        left={bubble.x}
-        depth={bubble.depth}
-      >
-        <Bubble size={bubble.size} />
-      </SceneItem>
-    ))}
+    layers={
+      <DepthBands
+        items={bubbles}
+        render={(bubble) => <Bubble size={bubble.size} />}
+      />
+    }
   >
     <SceneText>
       <small>Epilogue · Return</small>

@@ -65,3 +65,22 @@ export const scatter = (
       Math.max(depthMin, depthMax),
     ),
   }));
+
+/**
+ * Splits points into `count` groups of similar depth. Every group is rendered
+ * as one layer at its average depth: one composited layer per group instead of
+ * one per point, while the parallax still has several planes.
+ */
+export const groupByDepth = <T extends { depth: number }>(
+  points: T[],
+  count: number,
+): { depth: number; points: T[] }[] => {
+  const sorted = [...points].sort((a, b) => a.depth - b.depth);
+  const size = Math.ceil(sorted.length / count);
+
+  return Array.from({ length: count }, (_, index) => {
+    const group = sorted.slice(index * size, (index + 1) * size);
+    const depth = group.reduce((sum, p) => sum + p.depth, 0) / group.length;
+    return { depth: Math.round(depth), points: group };
+  }).filter((group) => group.points.length > 0);
+};

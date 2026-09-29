@@ -1,5 +1,6 @@
 import Scene, { SceneItem, SceneText } from '@/components/Scene';
 import Bubble from '@/components/Bubble';
+import DepthBands from '@/components/DepthBands';
 import Art from '@/components/Art';
 import { createRandom, scatter } from '@/utils/random';
 
@@ -50,16 +51,10 @@ const Cave = () => (
           <Art src={cave1} />
         </SceneItem>
 
-        {bubbles.map((bubble, index) => (
-          <SceneItem
-            key={index}
-            top={bubble.y}
-            left={bubble.x}
-            depth={bubble.depth}
-          >
-            <Bubble size={bubble.size} />
-          </SceneItem>
-        ))}
+        <DepthBands
+          items={bubbles}
+          render={(bubble) => <Bubble size={bubble.size} />}
+        />
       </>
     }
   >

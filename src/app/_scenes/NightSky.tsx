@@ -1,5 +1,5 @@
-import Scene, { Reveal, SceneItem, SceneText } from '@/components/Scene';
-import Star from '@/components/Star';
+import Scene, { Reveal, SceneText } from '@/components/Scene';
+import Starfield from '@/components/Starfield';
 import Scroll from '@/components/Scroll';
 import SiteHeader from '@/components/SiteHeader';
 import { createRandom, scatter } from '@/utils/random';
@@ -8,9 +8,11 @@ const random = createRandom(1);
 
 const stars = scatter(random, 200, { xMin: -10, xMax: 110 }).map((point) => ({
   ...point,
-  size: random.int(3, 8),
-  delay: random.int(0, 500) / 100,
+  size: random.int(2, 5),
 }));
+
+// Stars don't need a wide stage on phones: there is no artwork to crop.
+const noMinWidth = '0px';
 
 const NightSky = () => (
   <Scene
@@ -18,12 +20,9 @@ const NightSky = () => (
     label="Night sky"
     background="linear-gradient(to top, #000922, #000a1c, #000914, #00060a, #000101)"
     overflow="visible"
+    stageMinWidth={noMinWidth}
     header={<SiteHeader />}
-    layers={stars.map((star, index) => (
-      <SceneItem key={index} top={star.y} left={star.x} depth={star.depth}>
-        <Star size={star.size} delay={star.delay} />
-      </SceneItem>
-    ))}
+    layers={<Starfield stars={stars} />}
   >
     <SceneText reveal={false}>
       <Reveal delay={1} duration={2}>

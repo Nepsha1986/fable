@@ -1,5 +1,4 @@
 import { IFish } from '@/components/Fish/components/types';
-import { rotate } from 'next/dist/server/lib/squoosh/impl';
 
 const Fish3 = ({ color = '#fff', size = '20px', flip = false }: IFish) => {
   return (
