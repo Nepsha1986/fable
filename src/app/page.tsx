@@ -1,21 +1,24 @@
-import React from 'react';
+import ScrollProgress from '@/components/ScrollProgress';
 
-import Part1 from '@/app/_containers/Part1';
-import Part2 from '@/app/_containers/Part2';
-import Part3 from '@/app/_containers/Part3';
-import Part4 from '@/app/_containers/Part4';
-import Part5 from '@/app/_containers/Part5';
-import Part6 from '@/app/_containers/Part6';
+import NightSky from './_scenes/NightSky';
+import Sunrise from './_scenes/Sunrise';
+import Ocean from './_scenes/Ocean';
+import Reef from './_scenes/Reef';
+import Cave from './_scenes/Cave';
+import Abyss from './_scenes/Abyss';
 
 export default function Home() {
   return (
-    <main>
-      <Part1 />
-      <Part2 />
-      <Part3 />
-      <Part4 />
-      <Part5 />
-      <Part6 />
-    </main>
+    <>
+      <ScrollProgress />
+      <main>
+        <NightSky />
+        <Sunrise />
+        <Ocean />
+        <Reef />
+        <Cave />
+        <Abyss />
+      </main>
+    </>
   );
 }

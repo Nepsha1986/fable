@@ -1,12 +1,16 @@
 import styles from './styles.module.scss';
-const Scroll = () => {
-  return (
-    <div className={styles.scrollDowns}>
-      <div className={styles.mousey}>
-        <div className={styles.scroller} />
-      </div>
-    </div>
-  );
-};
+
+interface Props {
+  /** Anchor of the section to scroll to. */
+  href: string;
+}
+
+const Scroll = ({ href }: Props) => (
+  <a className={styles.scroll} href={href} aria-label="Scroll to the story">
+    <span className={styles.mouse}>
+      <span className={styles.wheel} />
+    </span>
+  </a>
+);
 
 export default Scroll;

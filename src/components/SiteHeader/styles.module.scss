@@ -1,9 +1,39 @@
 .header {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 3vw, 2rem);
+  color: #fff;
 
-  &__container {
-    padding: 1rem;
+  &__brand {
+    color: inherit;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  &__nav {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__icon {
+    display: inline-flex;
+    padding: 0.4rem;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--c-primary-light);
+    outline-offset: 3px;
   }
 }

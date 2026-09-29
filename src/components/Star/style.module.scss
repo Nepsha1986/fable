@@ -1,15 +1,40 @@
 .star {
-  background: #fff;
-  border-radius: 50%;
   width: 5px;
   height: 5px;
+  border-radius: 50%;
+  background: #fff;
   box-shadow:
     0 0 5px #fff,
     0 0 10px #fff,
     0 0 15px #fff,
     0 0 20px #228dff,
     0 0 35px #228dff,
-    0 0 40px #228dff,
     0 0 50px #228dff,
     0 0 75px #228dff;
+  opacity: 0;
+  animation:
+    appear 1s ease-out forwards,
+    twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star {
+    animation: none;
+    opacity: 1;
+  }
 }
