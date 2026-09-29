@@ -5,12 +5,14 @@ import classNames from 'classnames';
 
 import styles from './SceneText.module.scss';
 
+type Position = 'top' | 'center' | 'bottom';
+
 interface Props {
   children: ReactNode;
-  position?: 'top' | 'center' | 'bottom';
+  position?: Position;
+  /** Position on narrow screens, where the artwork is cropped differently. */
+  mobilePosition?: Position;
   align?: 'left' | 'center' | 'right';
-  /** Adds a translucent backdrop, improves contrast on busy artwork. */
-  panel?: boolean;
   /** Fade the block in when it scrolls into view. */
   reveal?: boolean;
   style?: CSSProperties;
@@ -21,7 +23,7 @@ const SceneText = ({
   children,
   position = 'center',
   align = 'center',
-  panel = false,
+  mobilePosition,
   reveal = true,
   style,
 }: Props) => (
@@ -30,7 +32,7 @@ const SceneText = ({
       styles.text,
       styles[`text_${position}`],
       styles[`text_${align}Aligned`],
-      { [styles.text_panel]: panel },
+      mobilePosition && styles[`text_mobile_${mobilePosition}`],
     )}
     style={style}
     initial={reveal ? { opacity: 0, y: 40 } : false}

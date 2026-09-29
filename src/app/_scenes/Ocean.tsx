@@ -36,12 +36,12 @@ const Ocean = () => (
     }
   >
     <SceneText position="bottom">
-      <small>II · Open sea</small>
-      <h2>Kindness makes waves</h2>
+      <small>Chapter II · The Crossing</small>
+      <h2>Life is kindness</h2>
       <p>
-        Dolphins rarely swim alone. A small act of care travels further than you
-        think, and when the water gets rough, it&apos;s the ones swimming beside
-        you who keep you afloat.
+        No one crosses the ocean alone. We are carried by hands we never saw and
+        by the kindness of strangers — until one day, without knowing it, we
+        become that current for someone else.
       </p>
     </SceneText>
   </Scene>

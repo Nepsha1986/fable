@@ -86,12 +86,12 @@ const Reef = () => (
     }
   >
     <SceneText position="bottom">
-      <small>III · The reef</small>
-      <h2>Learn. Love. Create.</h2>
+      <small>Chapter III · Roots</small>
+      <h2>Life is what we leave behind</h2>
       <p>
-        A reef is built over centuries by tiny, patient lives. Everything
-        worthwhile grows the same way: one curious question, one warm gesture,
-        one thing made with your own hands — at a time.
+        A reef is built by countless small lives that never see it whole. To
+        learn, to love, to create is to give yourself to something that will
+        outlive you — and that is how anything lasting has ever been made.
       </p>
     </SceneText>
   </Scene>

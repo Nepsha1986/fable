@@ -27,14 +27,14 @@ const NightSky = () => (
   >
     <SceneText reveal={false}>
       <Reveal delay={1} duration={2}>
-        <small>A fable in six scenes</small>
-        <h1>Life is awesome</h1>
+        <small>Prologue · Origin</small>
+        <h1>Life is a wonder</h1>
       </Reveal>
       <Reveal delay={1.7} duration={2}>
         <p>
-          …if you slow down long enough to notice it. Scroll gently: this is a
-          short journey from the stars to the bottom of the sea, where every
-          layer moves at its own pace — just like the moments worth remembering.
+          Long before your first breath, the light of distant stars was already
+          on its way to you. Every atom of you was forged in their fire — you
+          are the way the universe learned to wonder at itself.
         </p>
       </Reveal>
       <Reveal delay={3} duration={2}>

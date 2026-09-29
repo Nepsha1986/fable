@@ -31,14 +31,15 @@ const Abyss = () => (
     ))}
   >
     <SceneText>
-      <small>The end</small>
-      <h2>Thanks for diving in</h2>
+      <small>Epilogue · Return</small>
+      <h2>Life goes on</h2>
       <p>
-        Every journey ends where the next one begins. Take a breath and head
-        back up — the stars are still there, waiting.
+        Every river returns to the sea, and every ending opens a door. What we
+        loved does not disappear — it becomes the light by which someone else
+        will find their way.
       </p>
       <p>
-        <a href="#top">Back to the surface ↑</a>
+        <a href="#top">Begin again ↑</a>
       </p>
     </SceneText>
   </Scene>

@@ -41,9 +41,9 @@ const birds = scatter(random, 21, {
 const background =
   'linear-gradient(to bottom, #000922 5%, #00455f 40%, #008686 50%, #74c693 60%, #f6ff9d)';
 
-// The island is drawn for a square stage, so on narrow screens the scene is
-// as tall as the (1000px wide) stage.
-const sceneHeight = 'max(100vw, 1000px)';
+// The island is drawn for a square stage, so the scene is at least as tall as
+// the (1000px wide) stage. Narrower screens get extra sky on top for the text.
+const sceneHeight = 'max(100vw, 1000px + (1000px - 100vw) * 0.5)';
 
 const Sunrise = () => (
   <Scene
@@ -143,14 +143,21 @@ const Sunrise = () => (
       </>
     }
   >
-    {/* The bottom margin keeps the text above the waves. */}
-    <SceneText position="bottom" panel style={{ marginBottom: '4rem' }}>
-      <small>I · Dawn</small>
-      <h2>Every morning is a blank canvas</h2>
+    {/*
+      Desktop: in the sea, above the waves. Phones: the sea strip is too
+      short, so the text goes to the dark sky at the top.
+    */}
+    <SceneText
+      position="bottom"
+      mobilePosition="top"
+      style={{ marginBottom: '4rem' }}
+    >
+      <small>Chapter I · Dawn</small>
+      <h2>Life is a new beginning</h2>
       <p>
-        The sun never asks how yesterday went. It simply rises, paints the sky
-        in colors it has never used before and leaves the rest of the picture to
-        you.
+        Nothing that has already happened can stop the sun from rising. Every
+        morning repeats the oldest lesson in the world: it is never too late to
+        begin again.
       </p>
     </SceneText>
   </Scene>
