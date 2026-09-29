@@ -3,20 +3,34 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   --c-primary-light: #33daff;
+  --c-primary: #17a7bb;
   --c-primary-dark: #108a9a;
+  --c-bg: #000922;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+  background: var(--c-bg);
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  min-height: 100vh;
+  overflow-x: clip;
   line-height: 1.5;
+  color: #fff;
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -31,6 +45,34 @@ p {
 
 a {
   font-weight: bold;
-  color: var(--c-primary-dark);
+  color: var(--c-primary-light);
   text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+::selection {
+  color: #001018;
+  background: var(--c-primary-light);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

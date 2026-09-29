@@ -1,0 +1,85 @@
+$box_depth: 300px;
+
+.scene {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  // Keeps the (possibly wider than viewport) stage from causing
+  // a horizontal scroll, while letting layers overlap neighbour scenes.
+  overflow-x: clip;
+
+  &_clipped {
+    overflow: hidden;
+  }
+
+  &__header,
+  &__footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    flex-grow: 1;
+    display: grid;
+    padding: 3rem 1rem;
+  }
+
+  &__stage {
+    --stage-width: max(100%, var(--stage-min-width, 0px));
+
+    perspective: 600px;
+    // Lets layers use `cqw` units (% of the stage width).
+    container-type: inline-size;
+    position: absolute;
+    top: 0;
+    left: calc(50% - var(--stage-width) / 2);
+    width: var(--stage-width);
+    height: 100%;
+    pointer-events: none;
+  }
+
+  &__floor,
+  &__roof,
+  &__wallLeft,
+  &__wallRight {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  &__floor {
+    width: 100%;
+    height: $box_depth;
+    transform-origin: bottom left;
+    transform: rotateX(90deg);
+    bottom: 0;
+    left: 0;
+  }
+
+  &__roof {
+    width: 100%;
+    height: $box_depth;
+    transform-origin: top left;
+    transform: rotateX(-90deg);
+    top: 0;
+    left: 0;
+  }
+
+  &__wallLeft {
+    height: 100%;
+    width: $box_depth;
+    transform-origin: top left;
+    transform: rotateY(90deg);
+    top: 0;
+    left: 0;
+  }
+
+  &__wallRight {
+    height: 100%;
+    width: $box_depth;
+    transform-origin: top right;
+    transform: rotateY(-90deg);
+    top: 0;
+    right: 0;
+  }
+}

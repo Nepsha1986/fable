@@ -1,49 +1,47 @@
+'use client';
 import React, { useState } from 'react';
 
 import Button from '@/components/Button';
 import Dialog from '@/components/Dialog';
+import { site } from '@/config/site';
 
-const personalPageURL = 'https://alex.gift-idea.co';
-const projectSrcURL = 'https://github.com/Nepsha1986/fable';
 const AboutInfo = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleClick = () => {
-    setIsActive(true);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <Button onClick={handleClick} color="light">
+      <Button
+        variant="outline"
+        onClick={() => setIsOpen(true)}
+        aria-haspopup="dialog"
+      >
         About
       </Button>
 
-      <Dialog
-        heading={'About'}
-        open={isActive}
-        onClickClose={() => {
-          setIsActive(false);
-        }}
-      >
+      <Dialog heading="About" open={isOpen} onClose={() => setIsOpen(false)}>
         <p>
-          Hello, my name is Alex. I&apos;m a Frontend Developer from Ukraine.
-          Feel free to check out my{' '}
-          <a href={personalPageURL} target="_blank" rel="author">
+          Hi, I&apos;m Alex, a frontend developer from Ukraine. More about me on
+          my{' '}
+          <a href={site.author.url} target="_blank" rel="author noopener">
             personal page
-          </a>{' '}
-          for more information.
+          </a>
+          .
         </p>
 
         <p>
-          {
-            'This project demonstrates an approach to implementing the parallax effect by manipulating the "perspective-origin" CSS property within the parent container, instead of altering the Y coordinate in the 2D dimension layer. The essence of this technique lies in dynamically changing the perspective origin while scrolling, resulting in a captivating visual experience. This approach achieves a seamless blend of foreground and background elements, offering users a striking sense of depth and immersion.'
-          }
+          This project explores a different way to build a parallax effect.
+          Instead of moving every layer along the Y axis on scroll, each scene
+          is a 3D box: layers are placed at different depths with{' '}
+          <code>translateZ</code>, and while the scene scrolls, only the{' '}
+          <code>perspective-origin</code> of its container moves from top to
+          bottom. The browser does the rest — distant layers shift less than
+          near ones, just like in real life.
         </p>
 
         <p>
-          You can find the full code example{' '}
-          <a href={projectSrcURL} target="_blank">
-            here
+          The source code is available on{' '}
+          <a href={site.sourceUrl} target="_blank" rel="noopener">
+            GitHub
           </a>
           .
         </p>

@@ -1,4 +1,27 @@
 .siteFooter {
-  color: #fff;
-  padding: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 1.25rem clamp(1rem, 3vw, 2rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+
+  a {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--c-primary-light);
+    }
+  }
+
+  &__source {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
 }

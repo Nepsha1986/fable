@@ -1,0 +1,90 @@
+.text {
+  position: relative;
+  width: 100%;
+  max-width: 50rem;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 2px 16px rgba(0, 0, 0, 0.35);
+
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  h1,
+  h2 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &_top {
+    align-self: start;
+  }
+
+  &_center {
+    align-self: center;
+  }
+
+  &_bottom {
+    align-self: end;
+  }
+
+  &_leftAligned {
+    justify-self: start;
+    text-align: left;
+  }
+
+  &_centerAligned {
+    justify-self: center;
+  }
+
+  &_rightAligned {
+    justify-self: end;
+    text-align: right;
+  }
+
+  @media (max-width: 700px) {
+    &_mobile_top {
+      align-self: start;
+    }
+
+    &_mobile_center {
+      align-self: center;
+    }
+
+    &_mobile_bottom {
+      align-self: end;
+    }
+  }
+}
+
+// Chapter label above a heading.
+.text small {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--c-primary-light);
+}
