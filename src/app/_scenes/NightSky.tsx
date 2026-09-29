@@ -27,15 +27,14 @@ const NightSky = () => (
   >
     <SceneText reveal={false}>
       <Reveal delay={1} duration={2}>
-        <h1>Life is Awesome!</h1>
+        <small>A fable in six scenes</small>
+        <h1>Life is awesome</h1>
       </Reveal>
       <Reveal delay={1.7} duration={2}>
         <p>
-          Life is a magnificent journey filled with awe-inspiring moments, and
-          it is our privilege to cherish and value each heartbeat that
-          contributes to this extraordinary tapestry. Enjoy every moment, for
-          life&apos;s true beauty lies in the appreciation of its simple yet
-          profound wonders.
+          …if you slow down long enough to notice it. Scroll gently: this is a
+          short journey from the stars to the bottom of the sea, where every
+          layer moves at its own pace — just like the moments worth remembering.
         </p>
       </Reveal>
       <Reveal delay={3} duration={2}>

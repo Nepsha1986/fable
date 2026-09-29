@@ -64,7 +64,12 @@ const Cave = () => (
     }
   >
     <SceneText>
+      <small>IV · The cave</small>
       <h2>Enjoy every moment</h2>
+      <p>
+        Down here the light is soft and the world goes quiet. Some of the most
+        beautiful places can only be reached once you stop rushing.
+      </p>
     </SceneText>
   </Scene>
 );

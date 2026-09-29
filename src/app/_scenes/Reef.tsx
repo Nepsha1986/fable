@@ -86,13 +86,12 @@ const Reef = () => (
     }
   >
     <SceneText position="bottom">
-      <h2>Life is Learn, Love, Create</h2>
+      <small>III · The reef</small>
+      <h2>Learn. Love. Create.</h2>
       <p>
-        Cherish the bonds forged with loved ones, for they are the pillars of
-        support that elevate you in times of joy and adversity. As you navigate
-        this extraordinary journey, remember that each moment is a precious gift
-        – a chance to learn, love, and create a life that resonates with the
-        rhythm of your soul.
+        A reef is built over centuries by tiny, patient lives. Everything
+        worthwhile grows the same way: one curious question, one warm gesture,
+        one thing made with your own hands — at a time.
       </p>
     </SceneText>
   </Scene>

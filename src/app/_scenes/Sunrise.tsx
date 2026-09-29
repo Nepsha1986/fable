@@ -132,12 +132,12 @@ const Sunrise = () => (
   >
     {/* The bottom margin keeps the text above the waves. */}
     <SceneText position="bottom" panel style={{ marginBottom: '4rem' }}>
-      <h2>Life is a Canvas of Endless Possibilities</h2>
+      <small>I · Dawn</small>
+      <h2>Every morning is a blank canvas</h2>
       <p>
-        Embrace each dawn with gratitude, for it offers a canvas of endless
-        possibilities, where the gentle strokes of hope paint a masterpiece that
-        unfolds with the promise of new beginnings and the potential for
-        remarkable adventures yet to be discovered.
+        The sun never asks how yesterday went. It simply rises, paints the sky
+        in colors it has never used before and leaves the rest of the picture to
+        you.
       </p>
     </SceneText>
   </Scene>

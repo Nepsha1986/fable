@@ -31,8 +31,12 @@ const Abyss = () => (
     ))}
   >
     <SceneText>
-      <h2>The End</h2>
-      <p>Thanks for scrolling all the way down.</p>
+      <small>The end</small>
+      <h2>Thanks for diving in</h2>
+      <p>
+        Every journey ends where the next one begins. Take a breath and head
+        back up — the stars are still there, waiting.
+      </p>
       <p>
         <a href="#top">Back to the surface ↑</a>
       </p>

@@ -36,12 +36,12 @@ const Ocean = () => (
     }
   >
     <SceneText position="bottom">
-      <h2>Life is Kindness</h2>
+      <small>II · Open sea</small>
+      <h2>Kindness makes waves</h2>
       <p>
-        In the tapestry of life, weave kindness and compassion into every
-        interaction, creating a world that reflects the beauty within your
-        heart. Face challenges with resilience, understanding that they are
-        stepping stones toward personal growth and triumph.
+        Dolphins rarely swim alone. A small act of care travels further than you
+        think, and when the water gets rough, it&apos;s the ones swimming beside
+        you who keep you afloat.
       </p>
     </SceneText>
   </Scene>
